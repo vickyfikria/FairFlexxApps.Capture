@@ -1,7 +1,7 @@
 # .NET MAUI conversion
 
 Conversion guidance mostly taken from :
-!(1. econtainerShop migration guidance)[https://github.com/dotnet-architecture/eshop-mobile-client/blob/main/migration.md]
+![1. econtainerShop migration guidance](https://github.com/dotnet-architecture/eshop-mobile-client/blob/main/migration.md)
 
 
 ## This source created from Prism template
