@@ -1,0 +1,796 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AGB" xml:space="preserve">
+    <value>Terms and conditions</value>
+  </data>
+  <data name="AnErrorOccured" xml:space="preserve">
+    <value>An error occured!</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="AttachmentContent" xml:space="preserve">
+    <value>Please take a photo scan of one or more document pages that you want to attach to your form. In case you want to scan more than one page, please select "Multipage". All pages will be attached to your form document.</value>
+  </data>
+  <data name="AttachmentContentSuccess" xml:space="preserve">
+    <value>You added an attachment. There can be only one attachment in Fairflexx. You can tap on the thumbnail to review the last scan and delete or take a new photo scan if you want.</value>
+  </data>
+  <data name="Automatic" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="BusinessCard" xml:space="preserve">
+    <value>Business card</value>
+  </data>
+  <data name="BusinessCardContent" xml:space="preserve">
+    <value>Please take a photo scan of the business card. In case the reverse side has also content, please select "Multipage" and photo scan the front first and then the back.</value>
+  </data>
+  <data name="Camera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CompleteLead" xml:space="preserve">
+    <value>Complete lead</value>
+  </data>
+  <data name="CompleteLeadMessage" xml:space="preserve">
+    <value>Did you really scan all documents? After completion of the lead you cannot add more documents.</value>
+  </data>
+  <data name="CreateNewLead" xml:space="preserve">
+    <value>Create new lead</value>
+  </data>
+  <data name="Crop" xml:space="preserve">
+    <value>Crop</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DiscardLead" xml:space="preserve">
+    <value>Discard lead</value>
+  </data>
+  <data name="DiscardLeadMessage" xml:space="preserve">
+    <value>All scans for this lead will me removed from the device. Are you sure?</value>
+  </data>
+  <data name="EmailAnSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Please try again later. If it still doesn't work after some trials please contact your administrator or the Fairflexx support.</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="EventContent" xml:space="preserve">
+    <value>Please choose the event to upload the leads. After choosing the correct event, please tap on the "Upload" button. The upload will start after some seconds. Please wait while the upload is in progress!</value>
+  </data>
+  <data name="FairflexxFotoScan" xml:space="preserve">
+    <value>Fairflexx FotoScan</value>
+  </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Flash" xml:space="preserve">
+    <value>Flash</value>
+  </data>
+  <data name="Form" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="FormContent" xml:space="preserve">
+    <value>Please take a photo scan of the questionnaire form. In case the reverse side has content, please select "Multipage" and photo scan the front first and then the back.</value>
+  </data>
+  <data name="MoreBusinessCardContent" xml:space="preserve">
+    <value>You added a business card. You might use the + button to add another card. Or you can preview the scan and delete it to overwrite with a new photo scan. Just tap on a business card for this.</value>
+  </data>
+  <data name="Multipage" xml:space="preserve">
+    <value>Multi pages</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next Page</value>
+  </data>
+  <data name="Object" xml:space="preserve">
+    <value>Object</value>
+  </data>
+  <data name="ObjectContent" xml:space="preserve">
+    <value>Please take a photo scan of an object. The difference here is, that this is not a document. So you are free to take a photo. Please choose "Multipage" if you have more than one object.</value>
+  </data>
+  <data name="ObjectContentSuccess" xml:space="preserve">
+    <value>You added an object. There can be only one object in Fairflexx. You can tap on the thumbnail to review the last scan and delete or take a new photo scan if you want.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Preset" xml:space="preserve">
+    <value>Preset</value>
+  </data>
+  <data name="Preset_Login" xml:space="preserve">
+    <value>Preset &amp; Login</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TechnicalConfiguration" xml:space="preserve">
+    <value>Technical configuration</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="UploadContent" xml:space="preserve">
+    <value>Please login with your Fairflexx user account. If you dont have an account please contact your Administrator or the Fairflexx support.</value>
+  </data>
+  <data name="UploadLeads" xml:space="preserve">
+    <value>Upload leads</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Username_PasswordIncorrect" xml:space="preserve">
+    <value>Username or password incorrect.</value>
+  </data>
+  <data name="WebApiUrl" xml:space="preserve">
+    <value>Web-API URL</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome!</value>
+  </data>
+  <data name="WelcomeContent" xml:space="preserve">
+    <value>FotoScan is the App for our Lead-Inputsystem Fairflexx. Using FotoScan you can easy, fast, and secure capture your questionnaire forms, business cards, attachments and objects. And upload them to the Fairflexx System for further processing.</value>
+  </data>
+  <data name="PasswordEmpty" xml:space="preserve">
+    <value>Please enter your password!</value>
+  </data>
+  <data name="UsernameEmpty" xml:space="preserve">
+    <value>Please enter your username!</value>
+  </data>
+  <data name="NetworkError" xml:space="preserve">
+    <value>Please check on the internet connection and try again</value>
+  </data>
+  <data name="ConfigureLoginContent" xml:space="preserve">
+    <value>You can preset your login data. After successful login you can also preset an event.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Dismiss</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Licenses" xml:space="preserve">
+    <value>Licenses</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Coming soon</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="MessageNotAllowConfiguration" xml:space="preserve">
+    <value>The configured 'Working Path' is equals with the configured 'Path to Trigger'.
+This is not allowed!
+Please correct your 'Working Path' in  'Settings -&gt; Upload Client' or chose an other 'Path to Trigger'.</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="UploadFailed" xml:space="preserve">
+    <value>Upload failed</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="ResetFrame" xml:space="preserve">
+    <value>Reset frame</value>
+  </data>
+  <data name="SaveFileSuccessfully" xml:space="preserve">
+    <value>Save file successfully</value>
+  </data>
+  <data name="GetListEventsFailed" xml:space="preserve">
+    <value>Get event list fail. Please retry again!</value>
+  </data>
+  <data name="GrantPermissionStorage" xml:space="preserve">
+    <value>Please grant the permission for storage first!!!</value>
+  </data>
+  <data name="GrantPermissionCamera" xml:space="preserve">
+    <value>Please grant the permission for camera first!!!</value>
+  </data>
+  <data name="PresetAgain" xml:space="preserve">
+    <value>Please choose the event and preset again!!!</value>
+  </data>
+  <data name="Retry" xml:space="preserve">
+    <value>Retry</value>
+  </data>
+  <data name="SaveEventSuccessful" xml:space="preserve">
+    <value>Save event successful!</value>
+  </data>
+  <data name="ServerIsRunning" xml:space="preserve">
+    <value>The server is running!!!</value>
+  </data>
+  <data name="ServerNotExist" xml:space="preserve">
+    <value>The server is not exist!</value>
+  </data>
+  <data name="UploadFileFailed" xml:space="preserve">
+    <value>Upload file failed!!!</value>
+  </data>
+  <data name="UploadFileSuccessful" xml:space="preserve">
+    <value>Upload file {0} Successful</value>
+  </data>
+  <data name="PleaseChooseEvent" xml:space="preserve">
+    <value>The preset event is not available. Please check your configuration.</value>
+  </data>
+  <data name="DeleteDocument" xml:space="preserve">
+    <value>Delete document</value>
+  </data>
+  <data name="DeleteDocumentContent" xml:space="preserve">
+    <value>The document will be removed from the device. Are you sure?</value>
+  </data>
+  <data name="BusinessCardContentSuccess" xml:space="preserve">
+    <value>Business card added. Use the + button to add another card. To preview, delete or overwrite, tap on the preview.</value>
+  </data>
+  <data name="FormContentSuccess" xml:space="preserve">
+    <value>You added a form. There can be only one form in Fairflexx. To preview, delete or overwrite, tap on the preview.</value>
+  </data>
+  <data name="ChangingColor" xml:space="preserve">
+    <value>Change colour</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saving...</value>
+  </data>
+  <data name="EventIsPreset" xml:space="preserve">
+    <value>Event is preset! Use the configuration to change.</value>
+  </data>
+  <data name="BadAngles" xml:space="preserve">
+    <value>Bad angles</value>
+  </data>
+  <data name="BadAspectRatio" xml:space="preserve">
+    <value>Bad aspect ratio</value>
+  </data>
+  <data name="ConnectingServer" xml:space="preserve">
+    <value>Please wait... We are connecting to server.</value>
+  </data>
+  <data name="NothingDetected" xml:space="preserve">
+    <value>Nothing detected</value>
+  </data>
+  <data name="Preseting" xml:space="preserve">
+    <value>Preseting ...</value>
+  </data>
+  <data name="TooDark" xml:space="preserve">
+    <value>Too dark</value>
+  </data>
+  <data name="TooNoisy" xml:space="preserve">
+    <value>Too noisy</value>
+  </data>
+  <data name="TooSmall" xml:space="preserve">
+    <value>Too small</value>
+  </data>
+  <data name="UploadingFile" xml:space="preserve">
+    <value>Uploading file '{0}'
+( {1} )
+Please wait!</value>
+  </data>
+  <data name="CreateNewLeadFirst" xml:space="preserve">
+    <value>Please create the new lead first!</value>
+  </data>
+  <data name="Pages" xml:space="preserve">
+    <value>%d Pages</value>
+  </data>
+  <data name="WarningBusinessCard" xml:space="preserve">
+    <value>Only one Business Card is allowed (front and backside). We will save only the first 2 fotos.</value>
+  </data>
+  <data name="WarningForm" xml:space="preserve">
+    <value>Only one Form is allowed (front and backside). We will save only the first 2 fotos.</value>
+  </data>
+  <data name="FastUploadFile" xml:space="preserve">
+    <value>Fast Upload File</value>
+  </data>
+  <data name="EventIsNotPreset" xml:space="preserve">
+    <value>Event is not preset! Please choose an event.</value>
+  </data>
+  <data name="YourSessionIsExpired" xml:space="preserve">
+    <value>Your session is expired, please login again</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="ChooseTheEventAndLanguage" xml:space="preserve">
+    <value>Choose the event and language</value>
+  </data>
+  <data name="NoEvent" xml:space="preserve">
+    <value>There are no event. Please refresh the event list.</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="Right" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Middle" xml:space="preserve">
+    <value>Middle</value>
+  </data>
+  <data name="Technical" xml:space="preserve">
+    <value>Technical</value>
+  </data>
+  <data name="ChooseEventForUpload" xml:space="preserve">
+    <value>Choose the event for upload</value>
+  </data>
+  <data name="LeadList" xml:space="preserve">
+    <value>Lead list</value>
+  </data>
+  <data name="ShowLeads" xml:space="preserve">
+    <value>Show leads</value>
+  </data>
+  <data name="UploadList" xml:space="preserve">
+    <value>Upload list</value>
+  </data>
+  <data name="UploadEvents" xml:space="preserve">
+    <value>Upload Events</value>
+  </data>
+  <data name="HaveNotEnteredMandatoryField" xml:space="preserve">
+    <value>Please fill in all mandatory groups!</value>
+  </data>
+  <data name="SaveLogin" xml:space="preserve">
+    <value>Save Login</value>
+  </data>
+  <data name="DiscardThisLead" xml:space="preserve">
+    <value>Do you really want to go back and discard this lead? This lead will not be saved!</value>
+  </data>
+  <data name="AutomaticLoginfails" xml:space="preserve">
+    <value>Login fails. Please check username and password in the preferences!</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="FontSize" xml:space="preserve">
+    <value>Font size</value>
+  </data>
+  <data name="SelectFontSize" xml:space="preserve">
+    <value>Select a font-size</value>
+  </data>
+  <data name="Attach" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EmptyList" xml:space="preserve">
+    <value>The list is empty</value>
+  </data>
+  <data name="EnterHere" xml:space="preserve">
+    <value>Write text here</value>
+  </data>
+  <data name="FairflexxCapture" xml:space="preserve">
+    <value>Fairflexx Capture</value>
+  </data>
+  <data name="InvalidApiCall" xml:space="preserve">
+    <value>An error occure. Please try again later. If the error is still existing please contact Fairflexx support.</value>
+  </data>
+  <data name="LeadsList" xml:space="preserve">
+    <value>Lead List</value>
+  </data>
+  <data name="LeadWithCard" xml:space="preserve">
+    <value>Lead with card</value>
+  </data>
+  <data name="LeadWithoutCard" xml:space="preserve">
+    <value>Lead without card</value>
+  </data>
+  <data name="NewAttachment" xml:space="preserve">
+    <value>New Document</value>
+  </data>
+  <data name="NewCard" xml:space="preserve">
+    <value>New business card</value>
+  </data>
+  <data name="NewObject" xml:space="preserve">
+    <value>New Object</value>
+  </data>
+  <data name="NoPickImageSupport" xml:space="preserve">
+    <value>Missing permission</value>
+  </data>
+  <data name="NotCorrect" xml:space="preserve">
+    <value>* Not Correct</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Object1" xml:space="preserve">
+    <value>Object</value>
+  </data>
+  <data name="PermissionDenied" xml:space="preserve">
+    <value>Missing permission</value>
+  </data>
+  <data name="Redo" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="RefreshEventList" xml:space="preserve">
+    <value>Refresh event list</value>
+  </data>
+  <data name="SelectImage" xml:space="preserve">
+    <value>Select your image</value>
+  </data>
+  <data name="SelectYourFontSize" xml:space="preserve">
+    <value>Select your font size </value>
+  </data>
+  <data name="Sketch" xml:space="preserve">
+    <value>Sketch</value>
+  </data>
+  <data name="Undo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="VisitorMissed" xml:space="preserve">
+    <value>Visitor page is missing. Please check the configuration!</value>
+  </data>
+  <data name="AutoFilter" xml:space="preserve">
+    <value>Auto Filter</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="Technical configuration" xml:space="preserve">
+    <value>Technical configuration</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ContactFairflexx" xml:space="preserve">
+    <value>If you don't have an account, you might contact our sales on www.fairflexx.de</value>
+  </data>
+  <data name="ForgotAccount" xml:space="preserve">
+    <value>If you forgot your username or password please contact the Fairflexx support.</value>
+  </data>
+  <data name="HintLogin" xml:space="preserve">
+    <value>Please login with your Fairflexx User account.</value>
+  </data>
+  <data name="LoginIntro" xml:space="preserve">
+    <value>This application is part of the Fairflexx Leadmanagement System</value>
+  </data>
+  <data name="ActivationCode" xml:space="preserve">
+    <value>Activation Code</value>
+  </data>
+  <data name="ActivationCodeEmpty" xml:space="preserve">
+    <value>Activation Code is empty</value>
+  </data>
+  <data name="ActivationCodeIncorrect" xml:space="preserve">
+    <value>Activation Code is incorrect</value>
+  </data>
+  <data name="ContactFairflexxSystem" xml:space="preserve">
+    <value>In the case that you are not a user of the Fairflexx Leadmanagement System please contact our sales on www.fairflexx.de</value>
+  </data>
+  <data name="GetActivationCode" xml:space="preserve">
+    <value>If you do not have an activation code, please contact your Fairflexx Administrator.</value>
+  </data>
+  <data name="HintActivationCode" xml:space="preserve">
+    <value>You need  an activation code to use the application.</value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Thank you!</value>
+  </data>
+  <data name="LeadCounter" xml:space="preserve">
+    <value>Lead Counter</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="ResetLeadCounterMessage" xml:space="preserve">
+    <value>Do you really want to zero the counter?</value>
+  </data>
+  <data name="WarningRemoveEvent" xml:space="preserve">
+    <value>Do you want to remove this Event from the list? You can reload the Event using the Refresh button.</value>
+  </data>
+  <data name="FAQLink" xml:space="preserve">
+    <value>https://www.fairflexx.de/en/fairflexx-capture/fairflexx-capture-faq/</value>
+  </data>
+  <data name="AGBLink" xml:space="preserve">
+    <value>https://www.fairflexx.de/en/terms-and-conditions/</value>
+  </data>
+  <data name="PrivacyLink" xml:space="preserve">
+    <value>https://www.fairflexx.de/en/privacy-policy/</value>
+  </data>
+  <data name="LicensesLink" xml:space="preserve">
+    <value>https://www.fairflexx.de/fairflexx-capture/lizenzen/</value>
+  </data>
+  <data name="SupportLink" xml:space="preserve">
+    <value>https://www.fairflexx.de/en/fairflexx-capture/support/</value>
+  </data>
+  <data name="WarningRemoveLead" xml:space="preserve">
+    <value>Do you really want to delete the lead?</value>
+  </data>
+  <data name="ErrorLogging" xml:space="preserve">
+    <value>Error Logging</value>
+  </data>
+  <data name="NoLogging" xml:space="preserve">
+    <value>No logging!</value>
+  </data>
+  <data name="ShowLastError" xml:space="preserve">
+    <value>Show Last Error</value>
+  </data>
+  <data name="NoCard" xml:space="preserve">
+    <value>No business card</value>
+  </data>
+  <data name="Aqua" xml:space="preserve">
+    <value>Aqua</value>
+  </data>
+  <data name="Black" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="Blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Fuchsia" xml:space="preserve">
+    <value>Fuchsia</value>
+  </data>
+  <data name="Green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="Grey" xml:space="preserve">
+    <value>Grey</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="Thick" xml:space="preserve">
+    <value>Thick</value>
+  </data>
+  <data name="Thickish" xml:space="preserve">
+    <value>Thickish</value>
+  </data>
+  <data name="Thin" xml:space="preserve">
+    <value>Thin</value>
+  </data>
+  <data name="Thinish" xml:space="preserve">
+    <value>Thinish</value>
+  </data>
+  <data name="White" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="Yellow" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="FurtherCard" xml:space="preserve">
+    <value>Further business card</value>
+  </data>
+  <data name="AddText" xml:space="preserve">
+    <value>+ Text</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="MissingConfigError" xml:space="preserve">
+    <value>Missing configuration! Please contact your Administrator!</value>
+  </data>
+  <data name="UpdateAppError" xml:space="preserve">
+    <value>This event need a newer version of the Capture App. Please update this App first!</value>
+  </data>
+  <data name="EditImageWarning" xml:space="preserve">
+    <value>Please, first crop then edit (otherwise editing will not be saved)!</value>
+  </data>
+  <data name="QrFormatError" xml:space="preserve">
+    <value>Your QR code format is wrong, please recheck and try again!</value>
+  </data>
+  <data name="OnlySupportVcard" xml:space="preserve">
+    <value>Only Support VCard QR Code format</value>
+  </data>
+  <data name="EnterCodeHere" xml:space="preserve">
+    <value>Enter code here</value>
+  </data>
+  <data name="VerifyCode" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="InvalidVerificationCode" xml:space="preserve">
+    <value>Invalid verification code!</value>
+  </data>
+</root>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <!--Header-->
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+		    android:background="@drawable/bottom_shadow">
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="16dp"
+			android:layout_gravity="center">
+		<ImageView
+			android:id="@+id/backImageButton"
+			android:src="@drawable/ic_close"
+			android:textColor="@android:color/black"
+			android:layout_width="16dp"
+			android:layout_height="16dp"/>
+      
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="3"
+			android:layout_gravity="center">
+      <TextView
+        android:id = "@+id/txtFileName"
+			android:textColor="@android:color/black"
+			android:textSize="18sp"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"/>
+	</LinearLayout>
+
+		<LinearLayout android:id="@+id/saveLabelButton"
+      android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="16dp"
+			android:gravity="center_horizontal">
+			<TextView
+				android:text="@string/save"
+				android:textColor="@android:color/black"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+      
+		</LinearLayout>	
+
+	</LinearLayout>
+	
+	<FairFlexxApps.Capture.Droid.FotoScanSdk.Controls.CustomViewPager
+        android:id="@+id/imageViewPager"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"
+	    android:layout_weight="1"
+        android:paddingTop="0dp"
+        android:paddingBottom="4dp">
+		<android.support.v4.view.PagerTabStrip
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="top"
+          android:paddingBottom="0dp"
+          android:paddingTop="0dp"
+          android:textColor="#000" />
+	</FairFlexxApps.Capture.Droid.FotoScanSdk.Controls.CustomViewPager>
+
+  <!--Bottom tab-->
+	<LinearLayout
+		    android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+		    android:background="@drawable/top_shadow">
+
+		<LinearLayout
+			android:id="@+id/layoutCoverFilterTab"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal">
+
+			<ImageView android:src="@drawable/ic_filter_bottomtab"
+				android:layout_width="24dp"
+				android:layout_height="24dp"/>
+			<TextView
+				android:id="@+id/filterText"
+				android:text="@string/filter"
+				android:textColor="@android:color/black"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+      
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/layoutCoverOptimizationTab"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal">
+
+			<ImageView android:src="@drawable/ic_Optimization"
+				android:layout_width="24dp"
+				android:layout_height="24dp"/>
+			<TextView
+				android:id="@+id/optimizationText"
+				android:text="@string/edit"
+				android:textColor="@android:color/black"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+      
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/layoutCoverCropTab"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal">
+
+			<ImageView android:src="@drawable/ic_crop_bottomtab"
+				android:layout_width="24dp"
+				android:layout_height="24dp"/>
+			<TextView
+				android:id="@+id/cropText"
+				android:text="@string/crop"
+				android:textColor="@android:color/black"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+      
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/layoutCoverRotateTab"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal">
+
+			<ImageView android:src="@drawable/ic_rotate_to_right_button_bottomtab"
+				android:layout_width="24dp"
+				android:layout_height="24dp"/>
+			<TextView
+				android:id="@+id/rotateText"
+				android:text="@string/rotate"
+				android:textColor="@android:color/black"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+      
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/layoutCoverDeleteTab"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center_horizontal">
+
+			<ImageView android:src="@drawable/ic_delete_button_bottomtab"
+				android:layout_width="24dp"
+				android:layout_height="24dp"/>
+			<TextView
+				android:id="@+id/deleteText"
+				android:text="@string/delete"
+				android:textColor="@android:color/black"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+      
+		</LinearLayout>	
+
+	</LinearLayout>
+
+</LinearLayout>

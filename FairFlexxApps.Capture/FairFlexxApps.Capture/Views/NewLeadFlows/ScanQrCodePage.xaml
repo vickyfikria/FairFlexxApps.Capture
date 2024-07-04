@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePage
+    x:Class="FairFlexxApps.Capture.Views.NewLeadFlows.ScanQrCodePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:FairFlexxApps.Capture.Views.Base;assembly=FairFlexxApps.Capture"
+    xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization"
+    xmlns:prism="http://prismlibrary.com" 
+    xmlns:gv="clr-namespace:GoogleVisionBarCodeScanner;assembly=BarcodeScanner.XF"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasNavigationBar="false">
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        RowDefinitions="auto,*,auto"
+        RowSpacing="0"
+        VerticalOptions="FillAndExpand">
+        <StackLayout
+            Padding="{OnIdiom Tablet=40,
+                              Phone=20}"
+            BackgroundColor="LightGray"
+            HorizontalOptions="FillAndExpand">
+            <controls:ImageButton
+                x:Name="imageButton"
+                Grid.Column="0"
+                Command="{Binding BackCommand}"
+                HeightRequest="25"
+                HorizontalOptions="Start"
+                Source="ic_back"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="25" />
+        </StackLayout>
+        <Grid Grid.Row="1"
+              x:Name="ScanningLayout"/>
+        <gv:CameraView HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" 
+                       OnDetected="CameraView_OnDetected" 
+                       Grid.Row="1"
+                       VibrationOnDetected="False"
+                       ScanInterval="50"
+                       x:Name="ScanningView"/>
+        <StackLayout
+            Grid.Row="2"
+            Padding="{OnIdiom Tablet=60,
+                              Phone=30}"
+            BackgroundColor="LightGray"
+            HorizontalOptions="FillAndExpand">
+            <Label
+                FontAttributes="Bold"
+                FontSize="16"
+                HorizontalTextAlignment="Center"
+                Text="{localization:TranslateExtension OnlySupportVcard}"
+                TextColor="Black" />
+        </StackLayout>
+    </Grid>
+</base:BasePage>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:FairFlexxApps.Capture.Views.Base;assembly=FairFlexxApps.Capture"
+             x:Class="FairFlexxApps.Capture.Views.Commons.ActivationCodePage"
+             xmlns:views="clr-namespace:FairFlexxApps.Capture.Views.Base"
+             xmlns:viewmodels="clr-namespace:FairFlexxApps.Capture.ViewModels.Commons"
+
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+             xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+             NavigationPage.HasNavigationBar="false"
+             ios:Page.UseSafeArea="true">
+    <views:BasePage.BindingContext>
+        <viewmodels:ActivationCodePageViewModel />
+    </views:BasePage.BindingContext>    
+    <ScrollView Padding="0"
+                Margin="0" >
+        <StackLayout Spacing="0"
+                     Padding="0"
+                     Margin="0"
+                     BackgroundColor="{DynamicResource VeryLightGray}"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
+
+            <!--Logo-->
+            <Image x:Name="imageLogo" 
+                   HorizontalOptions="CenterAndExpand"
+                   Aspect="AspectFit"
+                   Source="fairflex_logo"
+                   Margin="0,60,0,25"
+                   WidthRequest="160"/>
+
+            <!--Activation code field-->
+            <StackLayout x:Name="LoginFrame"
+                         Padding="{StaticResource PageTitlePadding}">
+                <StackLayout.Margin>
+                    <OnIdiom x:TypeArguments="Thickness">
+                        <OnIdiom.Phone>30,10,30,0</OnIdiom.Phone>
+                        <OnIdiom.Tablet>85,10,85,0</OnIdiom.Tablet>
+                    </OnIdiom>
+                </StackLayout.Margin>
+
+                <Label Text="{localization:TranslateExtension ActivationCode}"
+                       FontSize="{DynamicResource NormalLabelFont}"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <controls:CustomEntry Text="{Binding ActivationCode}"
+                                          HasRoundedCorner="true"
+                                          x:Name="enActivationCode"
+                                          FontSize="{DynamicResource NormalLabelFont}"
+                                          MaxLength="20"
+                                          BackgroundColor="White"
+                                          ReturnType="Next"
+                                          ReturnCommand="{Binding ActivationCodeCommand}"
+                                          HeightRequest="50"
+                                          Placeholder="{localization:TranslateExtension EnterCodeHere}"
+                                          HorizontalOptions="FillAndExpand"/>
+                    <controls:CrossButton Text="{localization:TranslateExtension VerifyCode}"
+                                          Command="{Binding ActivationCodeCommand}"
+                                          HorizontalOptions="End"
+                                          HeightRequest="50"
+                                          Upper="True"
+                                          BackgroundColor="{DynamicResource GreenColor}"
+                                          TextColor="White"
+                                          Padding="10,0"/>
+                </StackLayout>
+
+            </StackLayout>
+
+            <!--Introduction-->
+            <StackLayout Padding="{StaticResource PageTitlePadding}"
+                     HorizontalOptions="CenterAndExpand"
+                     x:Name="Introduction"
+                     Spacing="15">
+                
+                <StackLayout.Margin>
+                    <OnIdiom x:TypeArguments="Thickness">
+                        <OnIdiom.Phone>30,10,30,0</OnIdiom.Phone>
+                        <OnIdiom.Tablet>85,12,85,0</OnIdiom.Tablet>
+                    </OnIdiom>
+                </StackLayout.Margin>
+
+                <Label Text="{localization:TranslateExtension LoginIntro}"
+                       x:Name="Intro"
+                       FontSize="{DynamicResource NormalLabelFont}"/>
+
+                <Label Text="{localization:TranslateExtension HintActivationCode}" 
+                       x:Name="Hint"
+                       FontSize="{DynamicResource NormalLabelFont}"/>
+
+                <Label Text="{localization:TranslateExtension GetActivationCode}" 
+                       x:Name="GetActivationCode"
+                       FontSize="{DynamicResource NormalLabelFont}"/>
+
+                <Label Text="{localization:TranslateExtension ContactFairflexxSystem}" 
+                       x:Name="ContactFairflexxSystem"
+                       FontSize="{DynamicResource NormalLabelFont}"/>
+
+                <Label Text="{localization:TranslateExtension ThankYou}" 
+                       x:Name="ThankYou"
+                       FontSize="{DynamicResource NormalLabelFont}"/>
+
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+</base:BasePage>

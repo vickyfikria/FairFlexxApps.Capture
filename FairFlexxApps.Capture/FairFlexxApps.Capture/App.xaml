@@ -1,0 +1,281 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FairFlexxApps.Capture.App">
+  <Application.Resources>
+
+    <!--  Application resource dictionary  -->
+
+    <ResourceDictionary>
+
+      <x:Double x:Key="SmallLabelFont">14</x:Double>
+      <x:Double x:Key="NormalLabelFont">16</x:Double>
+      <x:Double x:Key="LargeLabelFont">18</x:Double>
+      <x:Double x:Key="SuperLargeLabelFont">20</x:Double>
+      <x:Double x:Key="HugeLabelFont">22</x:Double>
+
+      <x:Double x:Key="HeaderSuperLargeLabelFont">20</x:Double>
+      <x:Double x:Key="ViewToSelectASmallFont">14</x:Double>
+
+      <!--  Font size for controls  -->
+      <x:Double x:Key="SmallLabelControlFont">14</x:Double>
+      <x:Double x:Key="NormalLabelControlFont">16</x:Double>
+      <x:Double x:Key="LargeLabelControlFont">18</x:Double>
+      <x:Double x:Key="SuperLabelControlFont">20</x:Double>
+      <x:Double x:Key="HugeLabelControlFont">22</x:Double>
+
+      <x:Double x:Key="HeightHeader">50</x:Double>
+
+      <Color x:Key="GreenColor">#009900</Color>
+      <Color x:Key="BlueColor">#3366CC</Color>
+      <Color x:Key="OrangeColor">#FFCC66</Color>
+      <Color x:Key="RedColor">#C8193C</Color>
+      <Color x:Key="DimGrayColor">DimGray</Color>
+      <Color x:Key="VeryLightGray">#f1f1f1</Color>
+      <Color x:Key="BlackColor">Black</Color>
+      <Color x:Key="WhiteColor">White</Color>
+
+      <Color x:Key="GrayColor">#4d4d4d</Color>
+
+      <Color x:Key="CircleButtonColor">#C91C3E</Color>
+      <Color x:Key="CustomGreenColor">#009900</Color>
+
+      <x:Double x:Key="WidthButtonTopView">170</x:Double>
+      <!--  Set text color for control  -->
+      <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+      </Style>
+      <Style TargetType="controls:CustomEntry">
+        <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+      </Style>
+
+      <!--#region Filter icon-->
+      <x:String x:Key="MagicColorIcon">ic_MagicColor.png</x:String>
+      <x:String x:Key="MagicTextColorIcon">ic_MagicTextColor.png</x:String>
+      <x:String x:Key="BlackWhiteColorIcon">ic_black_white_color.png</x:String>
+      <x:String x:Key="GrayColorIcon">ic_GrayColor.png</x:String>
+      <x:String x:Key="OriginalIcon">ic_Original.png</x:String>
+      <!--#endregion-->
+
+      <!--#region Image-->
+      <!--#region ImageBase-->
+      <Style x:Key="ImageBase" TargetType="Image">
+        <Setter Property="Margin" Value="12,0,0,0" />
+        <Setter Property="HeightRequest" Value="24" />
+        <Setter Property="WidthRequest" Value="24" />
+      </Style>
+      <!--#endregion-->
+      <Style
+                x:Key="ImageNext"
+                BasedOn="{StaticResource ImageBase}"
+                TargetType="Image">
+        <Setter Property="Source" Value="ic_next.png" />
+        <Setter Property="HorizontalOptions" Value="End" />
+      </Style>
+      <!--#region ImageCrop-->
+      <Style
+                x:Key="ImageCrop"
+                BasedOn="{StaticResource ImageBase}"
+                TargetType="Image">
+        <Setter Property="Source" Value="ic_crop.png" />
+      </Style>
+      <!--#endregion-->
+
+      <!--#region ImageColor-->
+      <Style
+                x:Key="ImageColor"
+                BasedOn="{StaticResource ImageBase}"
+                TargetType="Image">
+        <Setter Property="Source" Value="ic_color.png" />
+      </Style>
+      <!--#endregion-->
+      <!--#region EditImage-->
+      <Style
+                x:Key="EditImage"
+                BasedOn="{StaticResource ImageBase}"
+                TargetType="Image">
+        <Setter Property="Source" Value="ic_edit_image.png" />
+      </Style>
+      <!--#endregion-->
+      <!--#region ImageDraw-->
+      <Style
+                x:Key="ImageDraw"
+                BasedOn="{StaticResource ImageBase}"
+                TargetType="Image">
+        <Setter Property="Source" Value="ic_draw.png" />
+        <Setter Property="HeightRequest" Value="15"/>
+        <Setter Property="WidthRequest" Value="15"/>
+      </Style>
+      <!--#endregion-->
+      <!--#region ImageAddText-->
+      <Style
+                x:Key="ImageAddText"
+                BasedOn="{StaticResource ImageBase}"
+                TargetType="Image">
+        <Setter Property="Source" Value="ic_add_text.png" />
+        <Setter Property="HeightRequest" Value="15"/>
+        <Setter Property="WidthRequest" Value="15"/>
+      </Style>
+      <!--#endregion-->
+      <!--#endregion-->
+
+      <!--  Image button  -->
+      <x:Double x:Key="LogoPlus">95</x:Double>
+      <Style x:Key="ImageButtonSize" TargetType="controls:ImageButton">
+        <Setter Property="WidthRequest" Value="{DynamicResource LogoPlus}" />
+        <Setter Property="HeightRequest" Value="{DynamicResource LogoPlus}" />
+      </Style>
+
+      <!--#region Frame-->
+      <x:Double x:Key="WidthFrameStyleV1">160</x:Double>
+      <Style x:Key="FrameStylev1" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="Padding" Value="25,3" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="CornerRadius" Value="5" />
+        <!--<Setter Property="WidthRequest" Value="{DynamicResource WidthFrameStyleV1}"/>-->
+      </Style>
+
+      <Style x:Key="LeadCounterFrameStyle" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="Padding" Value="0,3" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        <Setter Property="CornerRadius" Value="5" />
+        <!--<Setter Property="WidthRequest" Value="{DynamicResource WidthFrameStyleV1}"/>-->
+      </Style>
+      <!--#endregion-->
+
+      <!--#region Button-->
+      <!--#region Button-->
+      <Style x:Key="ButtonBase" TargetType="controls:CrossButton">
+        <Setter Property="Upper" Value="False" />
+        <Setter Property="FontSize" Value="{DynamicResource SmallLabelFont}" />
+      </Style>
+      <!--#endregion-->
+
+      <!--  Button top menu  -->
+      <x:Double x:Key="FontSizeButtonTopMenu">16</x:Double>
+      <x:Double x:Key="WidthButtonSave">150</x:Double>
+
+      <x:Double x:Key="WidthBackButtonTopMenu">50</x:Double>
+
+      <!--  Content Top View  -->
+      <x:Double x:Key="HeightTopContentView">50</x:Double>
+      <Thickness x:Key="PageTitlePadding">10</Thickness>
+
+      <x:Double x:Key="ImageStatusLead">26</x:Double>
+
+      <Style x:Key="ButtonTopMenu" TargetType="controls:CrossButton">
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="Margin" Value="0,0,5,0" />
+        <Setter Property="TextColor" Value="DimGray" />
+        <Setter Property="FontSize" Value="{DynamicResource SmallLabelFont}" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="Upper" Value="True" />
+        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+      </Style>
+
+      <Style x:Key="ButtonPhoneTopMenu" TargetType="controls:CrossButton">
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="Margin" Value="0,0,5,0" />
+        <Setter Property="Padding" Value="{OnPlatform Android='10', iOS='0'}" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+      </Style>
+
+      <!--#region ButtonPopupEvent-->
+      <Style
+                x:Key="ButtonPopupEvent"
+                BasedOn="{StaticResource ButtonBase}"
+                TargetType="controls:CrossButton">
+        <Setter Property="BorderRadius" Value="5" />
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="WidthRequest" Value="85" />
+        <Setter Property="HeightRequest" Value="35" />
+      </Style>
+      <!--#endregion-->
+
+      <!--#region CrossButtonBase-->
+      <Style
+                x:Key="CrossButtonBase"
+                BasedOn="{StaticResource ButtonBase}"
+                TargetType="controls:CrossButton">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontSize" Value="{DynamicResource NormalLabelFont}" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="TextColor" Value="White" />
+      </Style>
+      <!--#endregion-->
+
+      <!--#region CrossButtonSave-->
+      <Style
+                x:Key="CrossButtonSave"
+                BasedOn="{StaticResource CrossButtonBase}"
+                TargetType="controls:CrossButton">
+        <Setter Property="ContentLayout" Value="Right, 0" />
+        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+        <Setter Property="Image">
+          <OnPlatform x:TypeArguments="FileImageSource">
+            <On Platform="iOS, Android" Value="ic_save_square_32.png" />
+          </OnPlatform>
+        </Setter>
+      </Style>
+      <!--#endregion-->
+
+      <!--#region CrossButtonBack-->
+      <Style
+                x:Key="CrossButtonBack"
+                BasedOn="{StaticResource CrossButtonBase}"
+                TargetType="controls:CrossButton">
+        <Setter Property="ContentLayout" Value="Left, 0" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+        <Setter Property="Image">
+          <OnPlatform x:TypeArguments="FileImageSource">
+            <On Platform="iOS, Android" Value="ic_back_square_32.png" />
+          </OnPlatform>
+        </Setter>
+      </Style>
+      <!--#endregion-->
+      <Style x:Key="StackLayoutStylev1" TargetType="StackLayout">
+        <Setter Property="Margin" Value="10,0" />
+        <Setter Property="BackgroundColor" Value="White" />
+      </Style>
+      <!--#endregion-->
+
+      <!--  Setting page  -->
+      <Style x:Key="BoxSetting" TargetType="StackLayout">
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Spacing" Value="0" />
+        <Setter Property="Margin" Value="0,5,0,15" />
+      </Style>
+      <Style x:Key="Headline" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="DimGray" />
+        <Setter Property="Padding" Value="0,5" />
+      </Style>
+      <Style x:Key="ContentSettingPage" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="LightGray" />
+        <Setter Property="Padding">
+          <OnIdiom
+                        x:TypeArguments="Thickness"
+                        Phone="15"
+                        Tablet="50,25,50,40" />
+        </Setter>
+      </Style>
+
+      <!--  New Contact Page  -->
+      <x:Double x:Key="WidthSmallButton">105</x:Double>
+      <x:Double x:Key="HeightSmallButton">47</x:Double>
+      <Thickness x:Key="MarginFrameButton">0,20,20,20</Thickness>
+
+      <!--#endregion-->
+    </ResourceDictionary>
+
+  </Application.Resources>
+
+</Application>

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"    
+    x:Class="FairFlexxApps.Capture.Views.HomePage"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:FairFlexxApps.Capture.Views.Base;assembly=FairFlexxApps.Capture"
+    xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="false">
+
+    <Grid
+        ColumnSpacing="0"
+        HorizontalOptions="FillAndExpand"
+        RowSpacing="0"
+        VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <StackLayout
+            Grid.Row="0"
+            Padding="0,8"
+            BackgroundColor="LightGray"
+            HeightRequest="{DynamicResource HeightHeader}"
+            Orientation="Horizontal">
+            <Label
+                Margin="15,0,0,0"
+                FontSize="{DynamicResource HugeLabelFont}"
+                HorizontalOptions="StartAndExpand"
+                Text="{localization:Translate FairflexxCapture}"
+                TextColor="{StaticResource DimGrayColor}"
+                VerticalOptions="CenterAndExpand" />
+            <StackLayout
+                x:Name="SettingsPage"
+                Margin="0,0,15,0"
+                BackgroundColor="Transparent"
+                HorizontalOptions="EndAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="FillAndExpand">
+                <Image Source="ic_settings" />
+                <Label
+                    FontSize="{DynamicResource LargeLabelFont}"
+                    IsVisible="{OnIdiom Phone=False}"
+                    Text="{localization:Translate Preferences}"
+                    VerticalOptions="CenterAndExpand">
+                    <Label.Margin>
+                        <OnPlatform
+                            x:DataType="Thickness"
+                            Android="-10,0,0,0"
+                            iOS="0,0,0,0" />
+                    </Label.Margin>
+                </Label>
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AnimationSettingsOnTapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <!--  Logo  -->
+            <Image
+                x:Name="imageLogo"
+                Aspect="AspectFit"
+                HorizontalOptions="StartAndExpand"
+                Source="ic_loading"
+                VerticalOptions="StartAndExpand" />
+            <!--<StackLayout Grid.Row="1"
+                     HorizontalOptions="StartAndExpand"
+                     VerticalOptions="StartAndExpand"
+                     x:Name="stackLogo">
+            <Image x:Name="imageLogo"/>
+        </StackLayout>-->
+
+            <!--  Create button  -->
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    Grid.Column="0"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Vertical"
+                    Spacing="0"
+                    VerticalOptions="StartAndExpand">
+                    <controls:ImageButton
+                        x:Name="btnWithCard"
+                        Command="{Binding LeadWithCardCommand}"
+                        Source="btn_Plus"
+                        Style="{StaticResource ImageButtonSize}" />
+                    <Label
+                        x:Name="lblWithCard"
+                        FontSize="{DynamicResource SuperLargeLabelFont}"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{localization:Translate LeadWithCard}"
+                        TextColor="Black" />
+                    <!--  TextColor="#159719"  -->
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Column="1"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Vertical"
+                    Spacing="0"
+                    VerticalOptions="StartAndExpand">
+                    <controls:ImageButton
+                        x:Name="btnWithoutCard"
+                        Command="{Binding LeadWithoutCardCommand}"
+                        Source="btn_WithoutCard"
+                        Style="{StaticResource ImageButtonSize}" />
+                    <Label
+                        x:Name="lblWithoutCard"
+                        FontSize="{DynamicResource SuperLargeLabelFont}"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{localization:Translate LeadWithoutCard}"
+                        TextColor="Black" />
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+        <StackLayout
+            Grid.Row="2"
+            Margin="0,-20,0,0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Vertical"
+                Spacing="0"
+                VerticalOptions="StartAndExpand">
+                <controls:ImageButton
+                    x:Name="btnList"
+                    Command="{Binding ContactListCommand}"
+                    Source="btn_List"
+                    Style="{StaticResource ImageButtonSize}" />
+                <StackLayout
+                    Padding="0"
+                    Orientation="Horizontal"
+                    Spacing="5">
+                    <Label
+                        x:Name="lblList"
+                        FontSize="{DynamicResource SuperLargeLabelFont}"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{localization:Translate LeadsList}"
+                        TextColor="Black"
+                        VerticalOptions="CenterAndExpand" />
+                    <Label
+                        FontSize="22"
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="{Binding IsLeadExist}"
+                        Text="●"
+                        TextColor="Red"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <!--<Image Source="ic_red_circle"
+                       IsVisible="{Binding IsLeadExist}"
+                       VerticalOptions="CenterAndExpand"
+                       HeightRequest="15"/>-->
+                </StackLayout>
+            </StackLayout>
+
+            <controls:CrossButton
+                Margin="0,40,0,0"
+                Padding="3,0,3,0"
+                BackgroundColor="{DynamicResource WhiteColor}"
+                BorderColor="{DynamicResource DimGrayColor}"
+                BorderWidth="1"
+                Command="{Binding LeadCounterCommand}"
+                FontSize="{DynamicResource NormalLabelFont}"
+                HorizontalOptions="CenterAndExpand"
+                Text="{localization:Translate LeadCounter}"
+                TextColor="{DynamicResource BlackColor}"
+                Upper="False"
+                VerticalOptions="StartAndExpand"
+                WidthRequest="120" />
+            <!--  TextColor="#0E6BC8"  -->
+        </StackLayout>
+    </Grid>
+</base:BasePage>

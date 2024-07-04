@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:PopupBasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"         
+                     xmlns:anim="clr-namespace:Mopups.Animations;assembly=Mopups"     
+                     xmlns:base="clr-namespace:FairFlexxApps.Capture.Views.Base;assembly=FairFlexxApps.Capture"
+                     xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+                     xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+                     x:Class="FairFlexxApps.Capture.Views.Popups.ConfirmPopup">
+    <mopups:PopupPage.Animation>
+        <base:PopupFadeAnimation/>
+    </mopups:PopupPage.Animation>
+
+    <Grid VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand"
+          BackgroundColor="#01ffffff">
+        <Frame BackgroundColor="White"
+               Padding="0"
+               Margin="20"
+               CornerRadius="8"
+               HasShadow="True"
+               VerticalOptions="CenterAndExpand">
+            <StackLayout Spacing="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0">
+                        <Grid Margin="20,15,32,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label x:Name="LabelConfirmTitle"
+                                   Text="{localization:TranslateExtension Confirm}"
+                                   Grid.Column="0"
+                                   TextColor="#4d4d4d"
+                                   FontSize="{DynamicResource SuperLargeLabelFont}"/>
+
+                        </Grid>
+                        <BoxView BackgroundColor="#d0d0d0" HeightRequest="0.5"
+                     Margin="20, 0, 20, 5" />
+                    </StackLayout>
+
+                    <!--Message-->
+                    <ScrollView Grid.Row="1">
+                        <Label x:Name="LabelConfirmMessage"
+                               Margin="20,0,20,25"
+                               FontSize="{DynamicResource SmallLabelFont}"
+                               TextColor="#4d4d4d" 
+                               HorizontalOptions="FillAndExpand"/>
+                    </ScrollView>
+
+                    <Grid Grid.Row="2"
+                          BackgroundColor="#C91C3E"
+                          HeightRequest="60">
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="EndAndExpand">
+                            <controls:CrossButton x:Name="ButtonConfirmAccept"
+                                                  Text="{localization:TranslateExtension Yes}"
+                                                  Clicked="AcceptPopupEvent"
+                                                  Margin="0,0,5,0"
+                                                  Style="{StaticResource ButtonPopupEvent}"/>
+                            <controls:CrossButton x:Name="ButtonConfirmClose"
+                                                  Text="{localization:TranslateExtension No}"
+                                                  Clicked="ClosedPopupEvent"
+                                                  Margin="0,0,20,0"
+                                                  Style="{StaticResource ButtonPopupEvent}"/>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+
+            </StackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="DoNothingEvent" />
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="ClosedPopupEvent" />
+        </Grid.GestureRecognizers>
+    </Grid>
+
+</base:PopupBasePage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:PopupBasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"                  
+                 xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
+                 xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+                 xmlns:base="clr-namespace:FairFlexxApps.Capture.Views.Base;assembly=FairFlexxApps.Capture"
+                 x:Class="FairFlexxApps.Capture.Views.Popups.ZoomImagePopUp">
+    <mopups:PopupPage.Animation>
+        <base:PopupNoAnimation/>
+    </mopups:PopupPage.Animation>
+    <Grid>
+        <controls:PinchAndPanContainer>
+            <controls:PinchAndPanContainer.Content>
+                <ffimageloading:CachedImage x:Name="ViewImagePopUp"
+                                            CacheType="None"
+                                            Aspect="AspectFit"/>
+            </controls:PinchAndPanContainer.Content>
+            <controls:PinchAndPanContainer.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapBackToDetailPage" 
+                                      NumberOfTapsRequired="2"/>
+                <SwipeGestureRecognizer Direction="Down" 
+                                        Swiped="SwipeBackToDetailPage"/>
+            </controls:PinchAndPanContainer.GestureRecognizers>
+        </controls:PinchAndPanContainer>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapBackToDetailPage" 
+                                  NumberOfTapsRequired="2"/>
+            <SwipeGestureRecognizer Direction="Down" 
+                                    Swiped="SwipeBackToDetailPage"/>
+        </Grid.GestureRecognizers>
+    </Grid>
+</base:PopupBasePage>

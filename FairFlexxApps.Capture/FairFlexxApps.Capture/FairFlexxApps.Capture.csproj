@@ -1,0 +1,149 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+    <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+    <!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FairFlexxApps.Capture</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Display name -->
+    <ApplicationTitle>FairFlexxApps.Capture</ApplicationTitle>
+
+    <!-- App Identifier -->
+    <ApplicationId>com.companyname.fairflexxapps.capture</ApplicationId>
+    <ApplicationIdGuid>0d11c673-842b-4605-911d-1c9328c391b4</ApplicationIdGuid>
+
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">26.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+    <AndroidSigningKeyStore>ftapps.keystore</AndroidSigningKeyStore>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+    <AndroidKeyStore>True</AndroidKeyStore>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+    <AndroidKeyStore>True</AndroidKeyStore>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\icon.png" />
+
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" />
+
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\AppIcon\accept.xml" />
+    <None Remove="Resources\AppIcon\appiconfg.svg" />
+    <None Remove="Resources\AppIcon\border_with_shadow.xml" />
+    <None Remove="Resources\AppIcon\bottom_shadow.xml" />
+    <None Remove="Resources\AppIcon\circle.xml" />
+    <None Remove="Resources\AppIcon\circle_button.xml" />
+    <None Remove="Resources\AppIcon\demoimage.jpg" />
+    <None Remove="Resources\AppIcon\dotnet_bot.png" />
+    <None Remove="Resources\AppIcon\hint_green.xml" />
+    <None Remove="Resources\AppIcon\hint_red.xml" />
+    <None Remove="Resources\AppIcon\hint_white.xml" />
+    <None Remove="Resources\AppIcon\icon.png" />
+    <None Remove="Resources\AppIcon\ic_back.png" />
+    <None Remove="Resources\AppIcon\ic_back_square_32.png" />
+    <None Remove="Resources\AppIcon\ic_deleted_32.png" />
+    <None Remove="Resources\AppIcon\ic_edit.png" />
+    <None Remove="Resources\AppIcon\ic_eyepassword.png" />
+    <None Remove="Resources\AppIcon\ic_loading.png" />
+    <None Remove="Resources\AppIcon\ic_photo_camera.png" />
+    <None Remove="Resources\AppIcon\ic_save_square_32.png" />
+    <None Remove="Resources\AppIcon\ic_settings.png" />
+    <None Remove="Resources\AppIcon\loading.png" />
+    <None Remove="Resources\AppIcon\reject.xml" />
+    <None Remove="Resources\AppIcon\top_shadow.xml" />
+    <None Remove="Resources\Layout\activity_scan.axml" />
+    <None Remove="Resources\Layout\CameraLayout.axml" />
+    <None Remove="Resources\Layout\CameraViewDemo.axml" />
+    <None Remove="Resources\Layout\EditLayout.axml" />
+    <None Remove="Resources\Layout\FilterLayout.axml" />
+    <None Remove="Resources\Layout\holder_brightness.xml" />
+    <None Remove="Resources\Layout\holder_contrast.xml" />
+    <None Remove="Resources\Layout\holder_white_balance.xml" />
+    <None Remove="Resources\Layout\imagecroppinglayout.axml" />
+    <None Remove="Resources\Layout\ImagePreviewLayout.axml" />
+    <None Remove="Resources\Layout\ImageViewCell.axml" />
+    <None Remove="Resources\Layout\Main.axml" />
+    <None Remove="Resources\Layout\ResizeDialogLayout.axml" />
+    <None Remove="Resources\Layout\SingleImagePreviewLayout.axml" />
+    <None Remove="Resources\Layout\Tabbar.axml" />
+    <None Remove="Resources\Layout\Toolbar.axml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidResource Include="Resources\Layout\activity_scan.axml" />
+    <AndroidResource Include="Resources\Layout\CameraLayout.axml" />
+    <AndroidResource Include="Resources\Layout\CameraViewDemo.axml" />
+    <AndroidResource Include="Resources\Layout\EditLayout.axml" />
+    <AndroidResource Include="Resources\Layout\FilterLayout.axml" />
+    <AndroidResource Include="Resources\Layout\holder_brightness.xml" />
+    <AndroidResource Include="Resources\Layout\holder_contrast.xml" />
+    <AndroidResource Include="Resources\Layout\holder_white_balance.xml" />
+    <AndroidResource Include="Resources\Layout\imagecroppinglayout.axml" />
+    <AndroidResource Include="Resources\Layout\ImagePreviewLayout.axml" />
+    <AndroidResource Include="Resources\Layout\ImageViewCell.axml" />
+    <AndroidResource Include="Resources\Layout\Main.axml" />
+    <AndroidResource Include="Resources\Layout\ResizeDialogLayout.axml" />
+    <AndroidResource Include="Resources\Layout\SingleImagePreviewLayout.axml" />
+    <AndroidResource Include="Resources\Layout\Tabbar.axml" />
+    <AndroidResource Include="Resources\Layout\Toolbar.axml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="FFImageLoadingCompat.Maui" Version="0.1.1" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.61" />    
+    <PackageReference Include="Microsoft.AppCenter" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.5" />
+    <PackageReference Include="Mopups" Version="1.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.191-beta" />
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.Views.Maui.Core" Version="2.88.8" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Navigation\" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+    <PackageReference Include="Xamarin.OpenCV.Droid">
+      <Version>3.4.2</Version>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

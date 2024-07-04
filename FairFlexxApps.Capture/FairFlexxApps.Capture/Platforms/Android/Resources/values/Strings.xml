@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">LiveDetection</string>
+
+  <string name="move_away">Move away</string>
+  <string name="move_closer">Move closer</string>
+  <string name="adjust_angle">Adjust angle</string>
+  <string name="hold_still">Hold still</string>
+  <string name="capturing">Capturing image</string>
+
+  <string name="white_balance">White Balance</string>
+  <string name="brightness">Brightness</string>
+  <string name="contrast">Contrast</string>
+
+  <string name="open_camera">Open Camera</string>
+  <string name="multi_pages">Multi Pages</string>
+  <string name="flashlight">Flashlight</string>
+  <string name="automatic">Automatic</string>
+  <string name="cancel">Cancel</string>
+  <string name="page">Page</string>
+  <string name="pages">Pages</string>
+  <string name="taking_photo">Taking photo...</string>
+  <string name="save">Save</string>
+  <string name="filter">Filter</string>
+  <string name="edit">Edit</string>
+  <string name="crop">Crop</string>
+  <string name="rotate">Rotate</string>
+  <string name="delete">Delete</string>
+  <string name="compress">Compress</string>
+  <string name="color">Color</string>
+  <string name="grey_scale">Grey Scale</string>
+  <string name="black_and_white">Black And White</string>
+  <string name="finding_object">Finding object</string>
+  <string name="saving">Saving...</string>
+  <string name="single_taken">image has taken successfully</string>
+  <string name="multi_taken">images have taken successfully</string>
+  <string name="ok">OK</string>
+  <string name="notification">Notification!</string>
+  <string name="cannot_take_more_images">Cannot take more than 5 images</string>
+  <string name="cannot_crop">Can not crop if image height or image width is 0</string>
+  <string name="choose_quality">Choose quality</string>
+  <string name="quality_10">10% Quality</string>
+  <string name="quality_25">25% Quality</string>
+  <string name="quality_50">50% Quality</string>
+  <string name="quality_75">75% Quality</string>
+  <string name="quality_100">100% Quality</string>
+  <string name="deleting">Deleting</string>
+  <string name="deleted">Deleted</string>
+  <string name="saved">Saved</string>
+</resources>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">LiveDetection</string>
+
+  <string name="move_away">Move away</string>
+  <string name="move_closer">Move closer</string>
+  <string name="adjust_angle">Adjust angle</string>
+  <string name="hold_still">Hold still</string>
+  <string name="capturing">Capturing image</string>
+
+  <string name="white_balance">White Balance</string>
+  <string name="brightness">Brightness</string>
+  <string name="contrast">Contrast</string>
+
+  <string name="open_camera">Kamera öffnen</string>
+  <string name="multi_pages">Mehrere Seiten</string>
+  <string name="flashlight">Taschenlampe</string>
+  <string name="automatic">Automatik</string>
+  <string name="cancel">Stornieren</string>
+  <string name="page">Seite</string>
+  <string name="pages">Seiten</string>
+  <string name="taking_photo">Foto machen...</string>
+  <string name="save">Speichern</string>
+  <string name="filter">Filter</string>
+  <string name="edit">Bearbeiten</string>
+  <string name="crop">Kupieren</string>
+  <string name="rotate">Drehen</string>
+  <string name="delete">Löschen</string>
+  <string name="compress">Komprimieren</string>
+  <string name="color">Farbe</string>
+  <string name="grey_scale">Graustufen</string>
+  <string name="black_and_white">Schwarz und weiß</string>
+  <string name="finding_object">Objekt finden</string>
+  <string name="saving">Speichern...</string>
+  <string name="single_taken">bild wurde erfolgreich aufgenommen</string>
+  <string name="multi_taken">bilder wurden erfolgreich aufgenommen</string>
+  <string name="ok">OK</string>
+  <string name="notification">Benachrichtigung!</string>
+  <string name="cannot_take_more_images">Kann nicht mehr als 5 Bilder aufnehmen</string>
+  <string name="choose_quality">Wählen Sie Qualität</string>
+  <string name="quality_10">10% Qualität</string>
+  <string name="quality_25">25% Qualität</string>
+  <string name="quality_50">50% Qualität</string>
+  <string name="quality_75">75% Qualität</string>
+  <string name="quality_100">100% Qualität</string>
+  <string name="deleting">Deleting</string>
+  <string name="deleted">Deleted</string>
+  <string name="saved">Saved</string>
+</resources>
