@@ -45,6 +45,7 @@
 
     <!-- Splash Screen -->
     <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" />
+    <MauiSplashScreen Include="Resources\Splash\splash_logo.png" />
 
     <!-- Images -->
     <MauiImage Include="Resources\Images\*" />
@@ -81,41 +82,27 @@
     <None Remove="Resources\AppIcon\loading.png" />
     <None Remove="Resources\AppIcon\reject.xml" />
     <None Remove="Resources\AppIcon\top_shadow.xml" />
-    <None Remove="Resources\Layout\activity_scan.axml" />
+    <None Remove="Platforms\Android\Resources\layout\activity_scan.axml" />
+    <None Remove="Platforms\Android\Resources\layout\CameraViewDemo.axml" />
+    <None Remove="Platforms\Android\Resources\layout\EditLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\FilterLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\holder_brightness.xml" />
+    <None Remove="Platforms\Android\Resources\layout\holder_contrast.xml" />
+    <None Remove="Platforms\Android\Resources\layout\holder_white_balance.xml" />
+    <None Remove="Platforms\Android\Resources\layout\imagecroppinglayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\ImagePreviewLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\ImageViewCell.axml" />
+    <None Remove="Platforms\Android\Resources\layout\Main.axml" />
+    <None Remove="Platforms\Android\Resources\layout\ResizeDialogLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\SingleImagePreviewLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\Tabbar.axml" />
+    <None Remove="Platforms\Android\Resources\layout\Toolbar.axml" />
     <None Remove="Resources\Layout\CameraLayout.axml" />
-    <None Remove="Resources\Layout\CameraViewDemo.axml" />
-    <None Remove="Resources\Layout\EditLayout.axml" />
-    <None Remove="Resources\Layout\FilterLayout.axml" />
-    <None Remove="Resources\Layout\holder_brightness.xml" />
-    <None Remove="Resources\Layout\holder_contrast.xml" />
-    <None Remove="Resources\Layout\holder_white_balance.xml" />
-    <None Remove="Resources\Layout\imagecroppinglayout.axml" />
-    <None Remove="Resources\Layout\ImagePreviewLayout.axml" />
-    <None Remove="Resources\Layout\ImageViewCell.axml" />
-    <None Remove="Resources\Layout\Main.axml" />
-    <None Remove="Resources\Layout\ResizeDialogLayout.axml" />
-    <None Remove="Resources\Layout\SingleImagePreviewLayout.axml" />
-    <None Remove="Resources\Layout\Tabbar.axml" />
-    <None Remove="Resources\Layout\Toolbar.axml" />
+    <None Remove="Resources\Splash\splash_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <AndroidResource Include="Resources\Layout\activity_scan.axml" />
     <AndroidResource Include="Resources\Layout\CameraLayout.axml" />
-    <AndroidResource Include="Resources\Layout\CameraViewDemo.axml" />
-    <AndroidResource Include="Resources\Layout\EditLayout.axml" />
-    <AndroidResource Include="Resources\Layout\FilterLayout.axml" />
-    <AndroidResource Include="Resources\Layout\holder_brightness.xml" />
-    <AndroidResource Include="Resources\Layout\holder_contrast.xml" />
-    <AndroidResource Include="Resources\Layout\holder_white_balance.xml" />
-    <AndroidResource Include="Resources\Layout\imagecroppinglayout.axml" />
-    <AndroidResource Include="Resources\Layout\ImagePreviewLayout.axml" />
-    <AndroidResource Include="Resources\Layout\ImageViewCell.axml" />
-    <AndroidResource Include="Resources\Layout\Main.axml" />
-    <AndroidResource Include="Resources\Layout\ResizeDialogLayout.axml" />
-    <AndroidResource Include="Resources\Layout\SingleImagePreviewLayout.axml" />
-    <AndroidResource Include="Resources\Layout\Tabbar.axml" />
-    <AndroidResource Include="Resources\Layout\Toolbar.axml" />
   </ItemGroup>
 
   <ItemGroup>

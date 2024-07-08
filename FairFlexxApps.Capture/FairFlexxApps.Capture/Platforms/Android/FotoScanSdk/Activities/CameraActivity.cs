@@ -25,6 +25,8 @@ using Org.Opencv.Imgproc;
 using Org.Opencv.Core;
 using Org.Opencv.Android;
 using Point = Org.Opencv.Core.Point;
+using Switch = Android.Widget.Switch;
+using ImageButton = Android.Widget.ImageButton;
 
 namespace FairFlexxApps.Capture.Droid.FotoScanSdk.Activities
 {
@@ -73,7 +75,7 @@ namespace FairFlexxApps.Capture.Droid.FotoScanSdk.Activities
             base.OnCreate(savedInstanceState);
             Window.AddFlags(WindowManagerFlags.KeepScreenOn);
             Instance = this;
-            SetContentView(Resource.Layout.CameraLayout);
+            SetContentView(Resource.Layout.cameralayout);//   .CameraLayout);
 
             Init();
         }
@@ -195,8 +197,8 @@ namespace FairFlexxApps.Capture.Droid.FotoScanSdk.Activities
             {
                 copyBitmap = bitmap.Copy(Bitmap.Config.Argb8888, true);
 
-                height = Window.FindViewById(Window.IdAndroidContent).Height;
-                width = Window.FindViewById(Window.IdAndroidContent).Width;
+                height = Window.FindViewById(Android.Views.Window.IdAndroidContent).Height;
+                width = Window.FindViewById(Android.Views.Window.IdAndroidContent).Width;
                 //copyBitmap = ScanUtils.resize(copyBitmap, width, height);
                 //Mat originalMat = new Mat(copyBitmap.Height, copyBitmap.Width, CvType.Cv8uc1);
                 //Org.Opencv.Android.Utils.BitmapToMat(copyBitmap, originalMat);

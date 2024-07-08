@@ -1,6 +1,5 @@
 ﻿using FairFlexxApps.Capture.Droid.Services.FotoScanSdk;
 using FairFlexxApps.Capture.Interfaces.FotoScanSdk;
-using Plugin.CurrentActivity;
 using System.Threading;
 using System.Threading.Tasks;
 using System;
@@ -9,7 +8,7 @@ using System.IO;
 using FairFlexxApps.Capture.Droid.FotoScanSdk.Activities;
 using FairFlexxApps.Capture.Models.FotoScanSdk;
 
-[assembly: Xamarin.Forms.Dependency(typeof(FotoScanSdkImplementation))]
+[assembly: Dependency(typeof(FotoScanSdkImplementation))]
 namespace FairFlexxApps.Capture.Droid.Services.FotoScanSdk
 {
     public class FotoScanSdkImplementation : IFotoScanSdk
@@ -52,7 +51,12 @@ namespace FairFlexxApps.Capture.Droid.Services.FotoScanSdk
             }
 
             ImagePreviewActivity.ImageResult += Handler;
-            CrossCurrentActivity.Current.Activity.StartActivity(typeof(CameraActivity));
+
+            Console.WriteLine();
+            Platform.CurrentActivity.StartActivity(typeof(CameraActivity));
+
+            // Xamarin.Forms
+            //CrossCurrentActivity.Current.Activity.StartActivity(typeof(CameraActivity));
 
             return _completionSource.Task;
         }

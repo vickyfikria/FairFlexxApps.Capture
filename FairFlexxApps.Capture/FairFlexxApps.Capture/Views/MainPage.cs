@@ -59,7 +59,7 @@ namespace FairFlexxApps.Capture.Views
             SideMenu = new StackLayout()
             {
                 Spacing = 0,
-                BackgroundColor = Color.White,
+                BackgroundColor = Colors.White,
             };
             DataSideMenu = SideMenuTemplate.GetDataSideMenu(template: Template, languageIndex: 0);
 
@@ -185,7 +185,7 @@ namespace FairFlexxApps.Capture.Views
             var stackHeader = new StackLayout()
             {
                 HeightRequest = 50,
-                BackgroundColor = Color.White,
+                BackgroundColor = Colors.White,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
 

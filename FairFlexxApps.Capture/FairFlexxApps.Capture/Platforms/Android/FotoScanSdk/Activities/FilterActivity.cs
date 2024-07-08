@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using Org.Opencv.Android;
 using Org.Opencv.Core;
 using static Android.App.ProgressDialog;
+using Resource = Android.Resource;
 
 namespace FairFlexxApps.Capture.Droid.FotoScanSdk.Activities
 {

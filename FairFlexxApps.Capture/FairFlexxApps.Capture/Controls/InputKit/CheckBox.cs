@@ -104,7 +104,7 @@ namespace FairFlexxApps.Capture.Controls.InputKit
                 }
 
                 await boxBackground.ScaleTo(0.9, 100, Easing.BounceIn);
-                boxBackground.BackgroundColor = IsChecked ? this.Color : Color.Transparent;
+                boxBackground.BackgroundColor = IsChecked ? this.Color : Colors.Transparent;
                 await boxBackground.ScaleTo(1, 100, Easing.BounceIn);
             }
             catch (Exception)
@@ -185,7 +185,7 @@ namespace FairFlexxApps.Capture.Controls.InputKit
             if (Type == CheckType.Material)
             {
                 boxBackground.BorderColor = Color;
-                boxBackground.BackgroundColor = IsChecked ? Color : Color.Transparent;
+                boxBackground.BackgroundColor = IsChecked ? Color : Colors.Transparent;
                 lblSelected.TextColor = Color.ToSurfaceColor();
             }
             else

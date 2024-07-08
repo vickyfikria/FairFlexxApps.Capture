@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Xml.Serialization;
 using FairFlexxApps.Capture.Models.Templates.Controls;
+using Label = FairFlexxApps.Capture.Models.Templates.Controls.Label;
+using Button = FairFlexxApps.Capture.Models.Templates.Controls.Button;
 
 namespace FairFlexxApps.Capture.Models.Templates.Pages
 {
