@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/bottom_shadow">
+
+		<LinearLayout
+			android:id="@+id/backImageButtonOptimization"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="16dp"
+			android:layout_gravity="center">
+		  <ImageView
+			  android:src="@drawable/ic_close"
+			  android:textColor="@android:color/black"
+			  android:layout_width="16dp"
+			  android:layout_height="16dp"/>
+		</LinearLayout>
+
+		<TextView
+			android:text="@string/edit"
+			android:textColor="@android:color/black"
+			android:textSize="18sp"
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<LinearLayout android:id="@+id/btnSaveOptimization"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="16dp"
+			android:gravity="center_horizontal">
+		  <TextView
+			  android:text="@string/save"
+			  android:textColor="@android:color/black"
+			  android:textSize="16sp"
+			  android:layout_width="wrap_content"
+			  android:layout_height="wrap_content"/>
+		</LinearLayout>
+	</LinearLayout>
+
+	<ImageView android:id="@+id/imvOptimization"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+          android:layout_gravity="center"
+         android:paddingTop="4dp"
+         android:paddingBottom="4dp"
+         android:layout_weight="1"/>
+	<LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_shadow"
+        android:padding="16dp">
+				<Button android:text="@string/compress"
+				  android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+				  android:id = "@+id/btnCompress"/>
+		<!--
+		<LinearLayout android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+				android:orientation="vertical">
+			<LinearLayout android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+					android:orientation="horizontal"
+						android:gravity="center">
+				<RadioGroup android:id="@+id/radioGroup"
+							android:layout_gravity="center_horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						 android:orientation="horizontal">
+					<RadioButton android:text="Percentage"
+						android:id="@+id/radio_percentage"
+						android:checked="true"/>
+					<RadioButton android:text="Width"
+						android:id="@+id/radio_manual"
+						android:checked="false"/>
+				</RadioGroup>
+			</LinearLayout>
+			<LinearLayout android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+				android:orientation="horizontal">
+			<EditText  android:id="@+id/input"
+					android:hint="Enter percentage"
+					android:layout_width="200sp"
+					android:layout_height="wrap_content"
+					android:inputType="number"/>
+			<Button android:text = "Resize"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id = "@+id/btnResize"/>
+			</LinearLayout>
+		</LinearLayout>
+		-->
+	</LinearLayout> 
+
+</LinearLayout>

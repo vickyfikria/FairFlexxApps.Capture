@@ -58,6 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Platforms\Android\Resources\layout\CameraLayout.axml" />
     <None Remove="Resources\AppIcon\accept.xml" />
     <None Remove="Resources\AppIcon\appiconfg.svg" />
     <None Remove="Resources\AppIcon\border_with_shadow.xml" />
@@ -97,10 +98,12 @@
     <None Remove="Platforms\Android\Resources\layout\SingleImagePreviewLayout.axml" />
     <None Remove="Platforms\Android\Resources\layout\Tabbar.axml" />
     <None Remove="Platforms\Android\Resources\layout\Toolbar.axml" />
+    <None Remove="Resources\layout\CameraLayout.axml" />
     <None Remove="Resources\Splash\splash_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BarcodeScanner.Mobile.Maui" Version="8.0.40.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="FFImageLoadingCompat.Maui" Version="0.1.1" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
@@ -132,6 +135,11 @@
     <PackageReference Include="Xamarin.OpenCV.Droid">
       <Version>3.4.2</Version>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Include="Platforms\Android\Resources\layout\CameraLayout.axml" />
+    <MauiXaml Include="Resources\layout\CameraLayout.axml" />
   </ItemGroup>
 
 </Project>

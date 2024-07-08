@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<RadioGroup android:id="@+id/radioGroup"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+		<RadioButton android:text="Percantage"
+			android:id="@+id/radio_percantage"
+			android:checked="true"/>
+		<RadioButton android:text="Width/Height"
+			android:id="@+id/radio_manual"
+			android:checked="false"/>
+	</RadioGroup>
+
+<LinearLayout android:id="@+id/percentageLayout"
+		    android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+	<TextView android:text="Percentage"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
+	<EditText android:id="@+id/et_width"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/manualLayout"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+	<TextView android:text="Width"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
+	<TextView android:text="Height"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
+	</LinearLayout>
+
+
+</LinearLayout>

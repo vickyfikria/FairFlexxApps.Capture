@@ -1,5 +1,8 @@
 ﻿using FairFlexxApps.Capture.Views;
 using FairFlexxApps.Capture.Managers;
+using FairFlexxApps.Capture.Interfaces;
+using FairFlexxApps.Capture;
+using FairFlexxApps.Capture.Droid.Utilities;  //.Platforms.Android.Utilities;
 
 namespace FairFlexxApps.Capture;
 
@@ -23,6 +26,9 @@ internal static class PrismStartup
     {
         containerRegistry.RegisterForNavigation<MainPage>()
                      .RegisterInstance(SemanticScreenReader.Default);
+
+        containerRegistry.RegisterSingleton<IFileService, FileService >();
+
 
     }
 }

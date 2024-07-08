@@ -179,7 +179,7 @@ namespace FairFlexxApps.Capture.Views
             layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
             layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
 
-            layout.Children.Add(topMenu, 0, 0);
+            layout.Add(topMenu, 0, 0); // in .NET MAUI, Grid.Children.Add no longer exist. Changed to Grid.Add()
             Grid.SetColumnSpan(topMenu, 2);
 
             var stackHeader = new StackLayout()
@@ -194,7 +194,7 @@ namespace FairFlexxApps.Capture.Views
             var dash = new BoxView()
             {
                 HeightRequest = 1,
-                BackgroundColor = Color.DimGray,
+                BackgroundColor = Colors.DimGray,
                 VerticalOptions = LayoutOptions.StartAndExpand,
             };
 
@@ -202,7 +202,7 @@ namespace FairFlexxApps.Capture.Views
             
             stackHeader.Children.Add(dash);
 
-            layout.Children.Add(stackHeader, 0, 1);
+            layout.Add(stackHeader, 0, 1); // in .NET MAUI, Grid.Children.Add no longer exist. Changed to Grid.Add()
             Grid.SetColumnSpan(stackHeader, 2);
 
             var sideMenuView = SideMenuTemplate.GetSideMenu(template: template, languageIndex: 0);
@@ -213,8 +213,8 @@ namespace FairFlexxApps.Capture.Views
 
             ViewTemp = pageView;
 
-            layout.Children.Add(pageView, 0, 2);
-            layout.Children.Add(sideMenu, 1, 2);
+            layout.Add(pageView, 0, 2); // in .NET MAUI, Grid.Children.Add no longer exist. Changed to Grid.Add()
+            layout.Add(sideMenu, 1, 2); // in .NET MAUI, Grid.Children.Add no longer exist. Changed to Grid.Add()
 
             return layout;
         }
@@ -235,7 +235,7 @@ namespace FairFlexxApps.Capture.Views
             //ViewTemp = LayoutPages[indexPage];
 
             ViewTemp.IsVisible = false;
-            GridLayout.Children.Add(LayoutPages[indexPage], 0, 2);
+            GridLayout.Add(LayoutPages[indexPage], 0, 2); // in .NET MAUI, Grid.Children.Add no longer exist. Changed to Grid.Add()
 
             ViewTemp = LayoutPages[indexPage];
             ViewTemp.IsVisible = true;

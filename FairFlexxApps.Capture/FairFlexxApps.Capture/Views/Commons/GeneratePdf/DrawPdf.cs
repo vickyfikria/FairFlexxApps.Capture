@@ -7,7 +7,7 @@ using FairFlexxApps.Capture.Models.Templates.Controls;
 using FairFlexxApps.Capture.Utilities;
 
 using SkiaSharp;
-using SkiaSharp.Views.Forms;
+using SkiaSharp.Views.Maui;
 using SkiaSharpFormsDemos;
 using System;
 using System.Collections.Generic;
@@ -71,7 +71,7 @@ namespace FairFlexxApps.Capture.Views.Commons.GeneratePdf
             var paintHeadline = new SKPaint()
             {
                 TextSize = 35,
-                Color = Color.White.ToSKColor(),
+                Color = Colors.White.ToSKColor(),
                 Style = SKPaintStyle.StrokeAndFill,
                 StrokeWidth = 2,
             };
@@ -79,7 +79,7 @@ namespace FairFlexxApps.Capture.Views.Commons.GeneratePdf
             var paintText = new SKPaint()
             {
                 TextSize = 28,
-                Color = Color.Black.ToSKColor(),
+                Color = Colors.Black.ToSKColor(),
                 Style = SKPaintStyle.Fill,
                 StrokeWidth = 2,
                 //Shader = SKShader.CreateColor(Color.Blue.ToSKColor())

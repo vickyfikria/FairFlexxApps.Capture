@@ -294,7 +294,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 Orientation = StackOrientation.Vertical,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Colors.Transparent,
             };
 
             if (rowTemplate != null)
@@ -579,12 +579,12 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                                         {
                                             Text = TranslateExtension.Get("NotCorrect"),
                                             IsVisible = false,
-                                            TextColor = Color.Red,
+                                            TextColor = Colors.Red,
                                             VerticalOptions = LayoutOptions.Center
                                         };
                                         entry.TextChanged += (s, e) =>
                                         {
-                                            if (((Entry)s).PlaceholderColor == Color.Red && ((Entry)s).Text != "")
+                                            if (((Entry)s).PlaceholderColor == Colors.Red && ((Entry)s).Text != "")
                                             {
                                                 hint.IsVisible = true;
                                             }
@@ -861,7 +861,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                                         var autoComplete = ControlTemplate.AutoCompleteControl(id: input.InputId,
                                             dataSource: dataSource, /*isMandatory: input.Mandatory,*/ isVisible: input.Visible, value: input.Value);
 
-                                        autoComplete.TextColor = dataSource.IndexOf(autoComplete.Text) != -1 ? Color.Black : Color.Red;
+                                        autoComplete.TextColor = dataSource.IndexOf(autoComplete.Text) != -1 ? Colors.Black : Colors.Red;
                                         autoComplete.TextChanged += (sender, e) =>
                                         {
                                             if (string.IsNullOrWhiteSpace(autoComplete.Text))
@@ -969,7 +969,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                                         var autoComplete = ControlTemplate.AutoCompleteControl(id: input.InputId,
                                             dataSource: dataSource, /*isMandatory: input.Mandatory,*/ isVisible: input.Visible, value: input.Value);
 
-                                        autoComplete.TextColor = dataSource.IndexOf(autoComplete.Text) != -1 ? Color.Black : Color.Red;
+                                        autoComplete.TextColor = dataSource.IndexOf(autoComplete.Text) != -1 ? Colors.Black : Colors.Red;
                                         autoComplete.TextChanged += (sender, e) =>
                                         {
                                             autoComplete.ItemsSource = string.IsNullOrWhiteSpace(autoComplete.Text)
@@ -999,7 +999,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                                         var autoComplete = ControlTemplate.AutoCompleteViewControl(id: input.InputId,
                                             dataSource: dataSource, /*isMandatory: input.Mandatory,*/ isVisible: input.Visible, value: input.Value);
 
-                                        autoComplete.TextColor = dataSource.IndexOf(autoComplete.Text) != -1 ? Color.Black : Color.Red;
+                                        autoComplete.TextColor = dataSource.IndexOf(autoComplete.Text) != -1 ? Colors.Black : Colors.Red;
                                         autoComplete.TextChanged += (sender, e) =>
                                         {
                                             autoComplete.SuggestionsHeightRequest = string.IsNullOrWhiteSpace(autoComplete.Text)
@@ -1023,7 +1023,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                                     var editor = new Editor
                                     {
                                         FontSize = (double)App.Current.Resources["NormalLabelControlFont"] + (int)App.Settings.FontSize,
-                                        TextColor = Color.Black,
+                                        TextColor = Colors.Black,
                                         HorizontalOptions = LayoutOptions.Center,
                                         AutoSize = EditorAutoSizeOption.TextChanges,
                                         MinimumHeightRequest = Device.Idiom == TargetIdiom.Tablet ? 800 : 400,
@@ -1074,7 +1074,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.Transparent,   
+                BackgroundColor = Colors.Transparent,   
             };
             
             foreach (var input in rowTemplate.Inputs)
@@ -1127,7 +1127,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                             stackVertical.Children.Add(checkbox);
                             stackVertical.Children.Add(entrychildren);
                             contentRow.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-                            contentRow.Children.Add(stackVertical, contentRow.Children.Count % rowTemplate.Column,
+                            contentRow.Add(stackVertical, contentRow.Children.Count % rowTemplate.Column,
                                 contentRow.Children.Count / rowTemplate.Column);
                         }
                         else
@@ -1144,7 +1144,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                                 };
                                 checkBoxSingle.IsChecked = input.Value?.StringToBool() ?? false;
                                 contentRow.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-                                contentRow.Children.Add(checkBoxSingle, contentRow.Children.Count % rowTemplate.Column,
+                                contentRow.Add(checkBoxSingle, contentRow.Children.Count % rowTemplate.Column,
                                     contentRow.Children.Count / rowTemplate.Column);
                             }
                             else
@@ -1157,7 +1157,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                                     input.Value = check.IsChecked.ToString();
                                 };
                                 contentRow.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-                                contentRow.Children.Add(checkBox, contentRow.Children.Count % rowTemplate.Column,
+                                contentRow.Add(checkBox, contentRow.Children.Count % rowTemplate.Column,
                                     contentRow.Children.Count / rowTemplate.Column);
                             }
                         }
@@ -1173,7 +1173,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 var checkBox = ControlTemplate.CustomCheckBoxControl(id: contentRow.Children.Count.ToString(),
                                    text: contentRow.Children.Count.ToString(), isVisible: false, column: rowTemplate.Column, value: false.ToString());
 
-                contentRow.Children.Add(checkBox, contentRow.Children.Count % rowTemplate.Column,
+                contentRow.Add(checkBox, contentRow.Children.Count % rowTemplate.Column,
                                       contentRow.Children.Count / rowTemplate.Column);
             }
 

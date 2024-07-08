@@ -5,7 +5,17 @@ using Microsoft.Maui.Controls.Compatibility.Hosting;
 using Mopups.Hosting;
 using SkiaSharp;
 using SkiaSharp.Views.Maui.Controls.Hosting;
+
+using FairFlexxApps.Capture.Views;
+using FairFlexxApps.Capture.ViewModels;
+using FairFlexxApps.Capture.Services.HttpService;
+using FairFlexxApps.Capture.Interfaces.HttpService;
+using FairFlexxApps.Capture.Interfaces.LocalDatabase;
+using FairFlexxApps.Capture.Services.LocalDatabase;
+
 using FairFlexxApps.Capture.Droid.Utilities;
+using FairFlexxApps.Capture.Droid.Services.SQLiteService;
+using BarcodeScanner.Mobile;
 
 namespace FairFlexxApps.Capture
 {
@@ -16,6 +26,21 @@ namespace FairFlexxApps.Capture
             => MauiApp
                 .CreateBuilder()
                 .UsePrismApp<App>(PrismStartup.Configure)
+                //.UsePrismApp<App>(prism =>
+                //{
+                //    prism.OnInitialized(container =>
+                //    {
+                //    })
+                //    .OnInitialized(() =>
+                //    {
+                //    });
+                //    prism.RegisterTypes(container =>
+                //    {
+                //    });
+                //    prism.OnAppStart(async (container, navigation) =>
+                //    {
+                //    });
+                //})
                 .UseFFImageLoading()
                 .UseSkiaSharp()
                 .ConfigureFonts(
@@ -30,7 +55,10 @@ namespace FairFlexxApps.Capture
                         //fonts.AddFont("SourceSansPro-Regular.ttf", "SourceSansPro-Regular");
                         //fonts.AddFont("SourceSansPro-Solid.ttf", "SourceSansPro-Solid");
                     })
-            
+                .ConfigureMauiHandlers(handlers =>
+                {
+                    handlers.AddBarcodeScannerHandler();
+                })
                 .ConfigureMopups()
                 .RegisterAppServices()
                 .RegisterViewModels()
@@ -39,7 +67,15 @@ namespace FairFlexxApps.Capture
 
         public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuilder)
         {
-            mauiAppBuilder.Services.RegisterServices<IFileService>(new FileService());
+            mauiAppBuilder.Services.AddSingleton<IHttpRequest, HttpRequest>(); // RegisterServices<IFileService>(new FileService());
+            mauiAppBuilder.Services.AddSingleton<ISerializer, Serializer>(); // RegisterServices<IFileService>(new FileService());
+            mauiAppBuilder.Services.AddSingleton<ISqLiteService, SqLiteService>(); // RegisterServices<IFileService>(new FileService());
+                                                                                   // For android
+#if ANDROID
+            mauiAppBuilder.Services.AddSingleton<IDatabaseConnection, DatabaseConnection>(); // RegisterServices<IFileService>(new FileService());
+            mauiAppBuilder.Services.AddSingleton<IFileService, FileService>(); // RegisterServices<IFileService>(new FileService());
+#endif
+            // For iOS
 
             return mauiAppBuilder;
         }
@@ -52,6 +88,8 @@ namespace FairFlexxApps.Capture
 
         public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
         {
+
+
             return mauiAppBuilder;
 
         }

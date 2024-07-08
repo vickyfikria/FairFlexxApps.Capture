@@ -5,7 +5,7 @@ using FairFlexxApps.Capture.Droid.Services.SQLiteService;
 using FairFlexxApps.Capture.Interfaces.LocalDatabase;
 using SQLite;
 
-[assembly: Xamarin.Forms.Dependency(typeof(DatabaseConnection))]
+[assembly: Dependency(typeof(DatabaseConnection))]
 namespace FairFlexxApps.Capture.Droid.Services.SQLiteService
 {
     public class DatabaseConnection : IDatabaseConnection
