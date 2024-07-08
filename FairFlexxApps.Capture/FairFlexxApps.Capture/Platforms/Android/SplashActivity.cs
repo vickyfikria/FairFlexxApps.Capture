@@ -1,29 +1,21 @@
 using Android.App;
+using Android.Content;
+using Android.Content.PM;
 using Android.OS;
+
 
 namespace FairFlexxApps.Capture.Platforms.Android;
 
-[Activity(Label = "SplashActivity")]
-public class SplashActivity : Activity
-{
-    protected override void OnCreate(Bundle? savedInstanceState)
-    {
-        base.OnCreate(savedInstanceState);
-
-        // Create your application here
-    }
-
-    [Activity(
+[Activity(
         Theme = "@style/SplashTheme",
-       Icon = "@mipmap/icon_app",
+        Icon = "@mipmap/icon_app",
         RoundIcon = "@mipmap/icon_app",
-        //RoundIcon = "@drawable/Icon",
+
         MainLauncher = true,
         NoHistory = true,
-        //Exported = true,
-        ScreenOrientation = ScreenOrientation.Portrait)]
 
-    [IntentFilter(new[] { Intent.ActionView },
+        ScreenOrientation = ScreenOrientation.Portrait)]
+[IntentFilter(new[] { Intent.ActionView },
         Categories = new[]
         {
             Intent.CategoryDefault,
@@ -32,7 +24,7 @@ public class SplashActivity : Activity
         DataScheme = "http",
         DataHost = "www.Fairflexx.com")]
 
-    [IntentFilter(new[] { Intent.ActionView },
+[IntentFilter(new[] { Intent.ActionView },
         Categories = new[]
         {
             Intent.CategoryDefault,
@@ -40,13 +32,15 @@ public class SplashActivity : Activity
         },
         DataScheme = "https",
         DataHost = "www.Fairflexx.com")]
-    public class SplashActivity : Activity
-    {
-        protected override void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
+public class SplashActivity : Activity
+{
 
-            StartActivity(typeof(MainActivity));
-        }
+
+    protected override void OnCreate(Bundle? savedInstanceState)
+    {
+        base.OnCreate(savedInstanceState);
+
+        // Create your application here
+        StartActivity(typeof(MainActivity));
     }
 }
