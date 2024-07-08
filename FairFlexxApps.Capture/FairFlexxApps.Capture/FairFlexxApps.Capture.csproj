@@ -97,12 +97,7 @@
     <None Remove="Platforms\Android\Resources\layout\SingleImagePreviewLayout.axml" />
     <None Remove="Platforms\Android\Resources\layout\Tabbar.axml" />
     <None Remove="Platforms\Android\Resources\layout\Toolbar.axml" />
-    <None Remove="Resources\Layout\CameraLayout.axml" />
     <None Remove="Resources\Splash\splash_logo.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AndroidResource Include="Resources\Layout\CameraLayout.axml" />
   </ItemGroup>
 
   <ItemGroup>

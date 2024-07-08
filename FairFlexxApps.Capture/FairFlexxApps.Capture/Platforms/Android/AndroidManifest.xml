@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true"></application>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.INTERNET" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+     android:versionName="2.0.31" package="com.fairflexx.capture1" android:installLocation="auto" android:versionCode="11">
+    <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="33" />
+
+	  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	  <uses-permission android:name="android.permission.INTERNET" />
+	  <uses-permission android:name="android.permission.FLASHLIGHT" />
+	  <uses-permission android:name="android.permission.CAMERA" />
+	  <uses-permission android:name="android.permission.READ_CALENDAR" />  
+	  <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" />
+    <application android:requestLegacyExternalStorage="true" android:label="FairFlexx Capture" android:icon="@mipmap/icon_app" android:theme="@style/MainTheme" android:usesCleartextTraffic="true" android:allowBackup="false" android:fullBackupOnly="false">
+      <!--android:networkSecurityConfig="@xml/network_security_config"-->
+      <!--for media plugin-->
+      <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.fairflexx.capture.fileProvider" android:exported="false" android:grantUriPermissions="true">
+        <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+      </provider>
+    </application>
 </manifest>

@@ -75,7 +75,7 @@ namespace FairFlexxApps.Capture.Droid.FotoScanSdk.Activities
             base.OnCreate(savedInstanceState);
             Window.AddFlags(WindowManagerFlags.KeepScreenOn);
             Instance = this;
-            SetContentView(Resource.Layout.cameralayout);//   .CameraLayout);
+            SetContentView(Resource.Layout.CameraLayout);//   .CameraLayout);
 
             Init();
         }
