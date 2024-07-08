@@ -153,10 +153,10 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 Text = text,
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 HorizontalOptions = LayoutOptions.Start,
-                Color = Color.Blue,
-                BackgroundColor = Color.Bisque,
-                BorderColor = Color.Aqua,
-                BoxBackgroundColor = Color.DarkGoldenrod,
+                Color = Colors.Blue,
+                BackgroundColor = Colors.Bisque,
+                BorderColor = Colors.Aqua,
+                BoxBackgroundColor = Colors.DarkGoldenrod,
             };
         }
 
@@ -286,10 +286,10 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 Margin = new Thickness(0, 0, 0, 10),
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                BackgroundColor = Color.White,
+                BackgroundColor = Colors.White,
                 MinimumWidthRequest = 80,
                 BorderWidth = 1,
-                BorderColor = Color.DimGray,
+                BorderColor = Colors.DimGray,
                 CornerRadius = 8,
                 Padding = new Thickness(0),
             };
@@ -489,7 +489,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HeightRequest = 100,
-                BackgroundColor = Color.White,
+                BackgroundColor = Colors.White,
                 IsTabStop = false,
             };
         }

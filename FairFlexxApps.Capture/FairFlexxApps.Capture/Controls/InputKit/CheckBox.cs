@@ -13,10 +13,11 @@ namespace FairFlexxApps.Capture.Controls.InputKit
     /// </summary>
     public class CheckBox : StackLayout, IValidatable
     {
+        //var accentColor = Color.FromArgb("FF4081"); // Alpha (255 for fully opaque), Red, Green, Blue
         public static GlobalSetting GlobalSetting { get; private set; } = new GlobalSetting
         {
             BackgroundColor = Colors.Transparent,
-            Color = Colors.Accent,
+            Color = Color.FromArgb("FF4081"), // Color Accent
             BorderColor = Colors.Black,
             TextColor = Colors.Black,
             Size = 25,
@@ -177,7 +178,7 @@ namespace FairFlexxApps.Capture.Controls.InputKit
         }
 
         public static readonly BindableProperty ColorProperty = BindableProperty.Create(nameof(Color), typeof(Color),
-            typeof(CheckBox), Color.Accent, propertyChanged: (bo, ov, nv) => (bo as CheckBox).UpdateColor());
+            typeof(CheckBox), Color.FromArgb("FF4081"), propertyChanged: (bo, ov, nv) => (bo as CheckBox).UpdateColor());
 
         void UpdateColor()
         {
@@ -481,7 +482,7 @@ namespace FairFlexxApps.Capture.Controls.InputKit
             boxSelected.WidthRequest = value * .6;  //old value 0.72
             boxSelected.HeightRequest = value * 0.6;
             lblSelected.FontSize = value * 0.72;       //old value 0.76
-            this.Children[0].MinimumWidthRequest = value * 1.4;
+            this.MinimumHeightRequest = value * 1.4; //this.MinimumHeightRequest.Children[0].MinimumWidthRequest = value * 1.4;
         }
 
         #endregion

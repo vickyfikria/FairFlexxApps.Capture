@@ -2,14 +2,12 @@
 using FairFlexxApps.Capture.ViewModels.NewLeadFlows;
 using FairFlexxApps.Capture.Views.Base;
 using FairFlexxApps.Capture.Views.Popups;
-using GoogleVisionBarCodeScanner;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
+using BarcodeScanner.Mobile;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using VCardReader;
-using Xamarin.Forms;
+
 
 namespace FairFlexxApps.Capture.Views.NewLeadFlows
 {
@@ -30,7 +28,10 @@ namespace FairFlexxApps.Capture.Views.NewLeadFlows
             {
                 IsAppeared = true;
 
-                bool allowed = await CheckCameraPermission();
+
+                bool allowed = await Methods.AskForRequiredPermission();
+
+                //bool allowed = await CheckCameraPermission();
 
                 if (!allowed)
                 {
@@ -46,7 +47,7 @@ namespace FairFlexxApps.Capture.Views.NewLeadFlows
             }
         }
 
-        private async Task<bool> CheckCameraPermission()
+       /* private async Task<bool> CheckCameraPermission()
         {
             var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
             if (cameraStatus != Plugin.Permissions.Abstractions.PermissionStatus.Granted)
@@ -66,7 +67,7 @@ namespace FairFlexxApps.Capture.Views.NewLeadFlows
             }
 
             return false;
-        }
+        }*/
 
         private CameraView GetScanningView()
         {
