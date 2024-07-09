@@ -222,7 +222,7 @@ namespace FairFlexxApps.Capture.Controls.InputKit
                     if (DisabledSource?.Contains(item) ?? false)
                         _View.IsDisabled = true;
 
-                    this.Children.Add(_View as View, this.Children.Count % ColumnNumber, this.Children.Count / ColumnNumber);
+                    this.Add(_View as View, this.Children.Count % ColumnNumber, this.Children.Count / ColumnNumber);
 
                     _View.IsSelected = this.Children.Count == _selectedIndex; //to keep selected index when content is changed
                 }
@@ -409,7 +409,7 @@ namespace FairFlexxApps.Capture.Controls.InputKit
     {
         private bool _isSelected = false;
         private object _value;
-        private Color _selectionColor = Colors.Accent;
+        private Color _selectionColor = Color.FromArgb("FF4081"); //Colors.Accent
         private Color _unselectedColor;
 
         ///-----------------------------------------------------------------------------

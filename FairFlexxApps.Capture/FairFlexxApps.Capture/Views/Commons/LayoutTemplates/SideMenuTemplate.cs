@@ -21,7 +21,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 //BackgroundColor = Color.DimGray,
-                SeparatorColor = Color.DimGray,
+                SeparatorColor = Colors.DimGray,
             };
 
             sideMenu.ItemTemplate = new DataTemplate(typeof(SideMenuViewCell));

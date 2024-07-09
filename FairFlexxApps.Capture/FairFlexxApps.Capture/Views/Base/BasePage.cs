@@ -74,7 +74,7 @@ namespace FairFlexxApps.Capture.Views.Base
         protected override void OnBindingContextChanged()
         {
             if (BindingContext != null)
-                ViewModel = (ViewModelBase_)BindingContext;
+                ViewModel = (ViewModelBase)BindingContext;
         }
 
         protected override void OnAppearing()
@@ -82,7 +82,7 @@ namespace FairFlexxApps.Capture.Views.Base
             try
             {
                 if (ViewModel == null && BindingContext != null)
-                    ViewModel = (ViewModelBase_)BindingContext;
+                    ViewModel = (ViewModelBase)BindingContext;
 
                 if (!_isAppeared)
                     ViewModel?.OnFirstTimeAppear();

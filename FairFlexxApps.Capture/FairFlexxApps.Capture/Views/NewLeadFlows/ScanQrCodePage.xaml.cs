@@ -11,13 +11,15 @@ using VCardReader;
 
 namespace FairFlexxApps.Capture.Views.NewLeadFlows
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScanQrCodePage : BasePage
     {
         private bool IsAppeared = false;
 
-        public ScanQrCodePage()
+        public ScanQrCodePage(ScanQrCodePageViewModel vm)
         {
             InitializeComponent();
+            BindingContext = vm;
         }
 
         protected async override void OnAppearing()

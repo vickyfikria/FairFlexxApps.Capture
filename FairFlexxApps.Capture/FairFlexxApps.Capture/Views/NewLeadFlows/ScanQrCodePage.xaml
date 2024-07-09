@@ -7,11 +7,10 @@
     xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls"
     xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls" 
-    xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization"
     xmlns:prism="http://prismlibrary.com"
     xmlns:gv="clr-namespace:BarcodeScanner.Mobile;assembly=BarcodeScanner.Mobile.Maui"
     ios:Page.UseSafeArea="true"
-    prism:ViewModelLocator.AutowireViewModel="True"
+    prism:ViewModelLocator.AutowireViewModel="Automatic"
     NavigationPage.HasNavigationBar="false">
     <Grid
         HorizontalOptions="FillAndExpand"

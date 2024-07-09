@@ -72,8 +72,8 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 var contentBox = GetContentBox(bodyTemplate: boxTemplate.Body, boxType: boxTemplate.BoxType,
                     datasTemplate: boxTemplate.Data, languagesIndex: languageIndex, column: boxTemplate.Column);
 
-                gridLayout.Children.Add(headLineLayout, 0, 0);
-                gridLayout.Children.Add(contentBox, 0, 1);
+                gridLayout.Add(headLineLayout, 0, 0);
+                gridLayout.Add(contentBox, 0, 1);
 
                 // add to have background
                 box.Children.Add(gridLayout);
@@ -116,14 +116,14 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             var contentCurrentBox = BoxTemplate.GetHalfBoxTemplate(languageIndex: languageIndex,
                 boxTemplate: currentBoxTemplate, boxType: currentBoxTemplate.BoxType, column: column);
 
-            twoHalfBoxContent.Children.Add(contentCurrentBox, 0, 0);
+            twoHalfBoxContent.Add(contentCurrentBox, 0, 0);
 
             if (nextBoxTemplate != null)
             {
                 var contentNextBox = BoxTemplate.GetHalfBoxTemplate(languageIndex: languageIndex,
                 boxTemplate: nextBoxTemplate, boxType: nextBoxTemplate.BoxType, column: column);
 
-                twoHalfBoxContent.Children.Add(contentNextBox, 1, 0);
+                twoHalfBoxContent.Add(contentNextBox, 1, 0);
             }
 
             return twoHalfBoxContent;
@@ -146,7 +146,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 RowSpacing = 0,
                 ColumnSpacing = 0,
                 Padding = 2,
-                BackgroundColor = Color.DimGray,
+                BackgroundColor = Colors.DimGray,
             };
             gridLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
             gridLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -155,8 +155,8 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             var contentBox = GetContentBox(bodyTemplate: boxTemplate.Body, boxType: boxType,
                 datasTemplate: boxTemplate.Data, languagesIndex: languageIndex, column: column);
 
-            gridLayout.Children.Add(headLineLayout, 0, 0);
-            gridLayout.Children.Add(contentBox, 0, 1);
+            gridLayout.Add(headLineLayout, 0, 0);
+            gridLayout.Add(contentBox, 0, 1);
 
             gridLayout.IsVisible = boxTemplate.Visible;
             return gridLayout;
@@ -173,7 +173,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 ClassId = "hint",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.LightGray,
+                BackgroundColor = Colors.LightGray,
                 //Margin = new Thickness(20, 0, 20, 20),
                 Padding = new Thickness(20),
                 RowSpacing = 0,
@@ -202,8 +202,8 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             }
 
             // add Hint icon
-            gridContent.Children.Add(icHint, 0, 0);
-            gridContent.Children.Add(stackContent, 1, 0);
+            gridContent.Add(icHint, 0, 0);
+            gridContent.Add(stackContent, 1, 0);
 
             return gridContent;
         }
@@ -217,7 +217,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             var labelTitle = new Label()
             {
                 Text = headLine,
-                TextColor = Color.White,
+                TextColor = Colors.White,
                 //FontAttributes = FontAttributes.Bold,
                 //FontSize = (Math.Max(App.DisplayScreenWidth, App.DisplayScreenHeight) > 1620) ? 18 + 4 : 18,
                 FontSize = (double)App.Current.Resources["LargeLabelControlFont"] + (int)App.Settings.FontSize,
@@ -227,7 +227,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             {
                 ClassId = "header",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.DimGray,
+                BackgroundColor = Colors.DimGray,
                 Children = { labelTitle },
                 Padding = new Thickness(20, 8),
             };
@@ -245,7 +245,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             {
                 ClassId = "body",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.LightGray,
+                BackgroundColor = Colors.LightGray,
                 Padding = new Thickness(20, 10),
                 //Children = { labelTitle },
             };
@@ -466,7 +466,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                         //Grid.SetColumnSpan(radioButtons, 2);
                         //buttonWithColumnLayout.Children.Add(radioButtons);
                         // buttonWithColumnLayout.Children.Add(new StackLayout() { HorizontalOptions = LayoutOptions.FillAndExpand }, rowTemplate.Column-1, 1, 0, 1);
-                        buttonWithColumnLayout.Children.Add(radioButtons, 0, 2, 0, 1);
+                        buttonWithColumnLayout.Add(radioButtons, 0, 2, 0, 1);
 
                         contentRow.Children.Add((rowTemplate.Column > itemsSource.Count) ? buttonWithColumnLayout : radioButtons);
 
@@ -914,7 +914,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                                         var autoComplete = ControlTemplate.AutoCompleteViewControl(id: input.InputId,
                                             dataSource: dataSource, /*isMandatory: input.Mandatory,*/ isVisible: input.Visible, value: input.Value);
 
-                                        autoComplete.TextColor = dataSource.IndexOf(autoComplete.Text) != -1 ? Color.Black : Color.Red;
+                                        autoComplete.TextColor = dataSource.IndexOf(autoComplete.Text) != -1 ? Colors.Black : Colors.Red;
                                         autoComplete.TextChanged += (sender, e) =>
                                         {
                                             if (string.IsNullOrWhiteSpace(autoComplete.Text))
