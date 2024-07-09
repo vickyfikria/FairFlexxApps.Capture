@@ -58,6 +58,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Platforms\Android\FotoScanSdk\**" />
+    <Compile Remove="Resources\layout\**" />
+    <EmbeddedResource Remove="Platforms\Android\FotoScanSdk\**" />
+    <EmbeddedResource Remove="Resources\layout\**" />
+    <MauiCss Remove="Platforms\Android\FotoScanSdk\**" />
+    <MauiCss Remove="Resources\layout\**" />
+    <MauiXaml Remove="Platforms\Android\FotoScanSdk\**" />
+    <MauiXaml Remove="Resources\layout\**" />
+    <None Remove="Platforms\Android\FotoScanSdk\**" />
+    <None Remove="Resources\layout\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Platforms\Android\Resources\layout\CameraLayout.axml" />
     <None Remove="Resources\AppIcon\accept.xml" />
     <None Remove="Resources\AppIcon\appiconfg.svg" />
@@ -83,22 +96,6 @@
     <None Remove="Resources\AppIcon\loading.png" />
     <None Remove="Resources\AppIcon\reject.xml" />
     <None Remove="Resources\AppIcon\top_shadow.xml" />
-    <None Remove="Platforms\Android\Resources\layout\activity_scan.axml" />
-    <None Remove="Platforms\Android\Resources\layout\CameraViewDemo.axml" />
-    <None Remove="Platforms\Android\Resources\layout\EditLayout.axml" />
-    <None Remove="Platforms\Android\Resources\layout\FilterLayout.axml" />
-    <None Remove="Platforms\Android\Resources\layout\holder_brightness.xml" />
-    <None Remove="Platforms\Android\Resources\layout\holder_contrast.xml" />
-    <None Remove="Platforms\Android\Resources\layout\holder_white_balance.xml" />
-    <None Remove="Platforms\Android\Resources\layout\imagecroppinglayout.axml" />
-    <None Remove="Platforms\Android\Resources\layout\ImagePreviewLayout.axml" />
-    <None Remove="Platforms\Android\Resources\layout\ImageViewCell.axml" />
-    <None Remove="Platforms\Android\Resources\layout\Main.axml" />
-    <None Remove="Platforms\Android\Resources\layout\ResizeDialogLayout.axml" />
-    <None Remove="Platforms\Android\Resources\layout\SingleImagePreviewLayout.axml" />
-    <None Remove="Platforms\Android\Resources\layout\Tabbar.axml" />
-    <None Remove="Platforms\Android\Resources\layout\Toolbar.axml" />
-    <None Remove="Resources\layout\CameraLayout.axml" />
     <None Remove="Resources\Splash\splash_logo.png" />
   </ItemGroup>
 
@@ -140,7 +137,6 @@
 
   <ItemGroup>
     <MauiXaml Include="Platforms\Android\Resources\layout\CameraLayout.axml" />
-    <MauiXaml Include="Resources\layout\CameraLayout.axml" />
   </ItemGroup>
 
 </Project>
