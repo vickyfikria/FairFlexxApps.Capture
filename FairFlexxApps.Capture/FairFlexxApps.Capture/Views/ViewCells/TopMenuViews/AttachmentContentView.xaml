@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:converters="clr-namespace:FairFlexxApps.Capture.Converters"
+             xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+             x:Class="FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.AttachmentContentView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:StreamConverter x:Key="StreamConverter"/>
+            <converters:ImageByteResourceConverter x:Key="ImageByteResourceConverter"/>
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter"/>
+            <converters:AnyScannerResultItemsToBoolConverter x:Key="AnyScannerResultItemsToBoolConverter"
+                                                             IsReverse="True"/>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <StackLayout BackgroundColor="White"
+                     x:Name="attachView"
+                     Padding="8,0">
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="0">
+                <Label Text="{localization:Translate Attachment}"
+                       FontAttributes="Bold"
+                       FontSize="{DynamicResource LargeLabelFont}"/>
+                <controls:ImageButton Source="ic_cancel"
+                                      WidthRequest="20"
+                                      HeightRequest="20"
+                                      Command="{Binding DeleteCommand}"
+                                      HorizontalOptions="EndAndExpand"
+                                      VerticalOptions="CenterAndExpand"
+                                      IsVisible="{Binding LeadTypeFiles, Converter={StaticResource AnyScannerResultItemsToBoolConverter}}"/>
+            </StackLayout>
+            <Grid HorizontalOptions="FillAndExpand"
+                  HeightRequest="375"
+                  BackgroundColor="DimGray"
+                  Padding="1"
+                  Margin="0,0,0,20">
+                <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      BackgroundColor="White">
+                    <StackLayout VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="CenterAndExpand">
+                        <controls:ImageButton Source="btn_Plus"
+                                              Style="{DynamicResource ImageButtonSize}"
+                                              Command="{Binding ScanCommand}"
+                                              CommandParameter="Attachment"/>
+                        <Label Text="{localization:Translate NewAttachment}"
+                               HorizontalOptions="CenterAndExpand"
+                               FontSize="{DynamicResource NormalLabelFont}"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand"
+                      IsVisible="{Binding LeadTypeFiles, Converter={StaticResource AnyScannerResultItemsToBoolConverter}}"
+                      BackgroundColor="White">
+                    <Grid VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand"
+                          Margin="5">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ZoomImage"/>
+                        </Grid.GestureRecognizers>
+                        <forms:CachedImage x:Name="imgView"
+                                           CacheType="None"
+                                           Aspect="AspectFit"/>
+
+                    </Grid>
+                    <controls:ImageButton Source="ic_left_arrow"
+                                              IsVisible="{Binding IsVisibleBack}"
+                                              Command="{Binding BackImageCommand}"
+                                              BackgroundColor="Transparent"
+                                              HorizontalOptions="Start"
+                                              VerticalOptions="Center"
+                                      WidthRequest="35"
+                                      HeightRequest="35"/>
+                    <controls:ImageButton Source="ic_right_arrow"
+                                              IsVisible="{Binding IsVisibleNext}"
+                                              Command="{Binding NextImageCommand}"
+                                              BackgroundColor="Transparent"
+                                              VerticalOptions="Center"
+                                              HorizontalOptions="End"
+                                      WidthRequest="35"
+                                      HeightRequest="35"/>
+                </Grid>
+
+            </Grid>
+        </StackLayout>
+
+    </ContentView.Content>
+        
+</ContentView>

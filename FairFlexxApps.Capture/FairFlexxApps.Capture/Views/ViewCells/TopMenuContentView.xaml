@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+             x:Class="FairFlexxApps.Capture.Views.ViewCells.TopMenuContentView"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentView.Content>
+        <Grid BackgroundColor="LightGray"
+              ColumnSpacing="0"
+              RowSpacing="0"
+              HorizontalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <!--<ColumnDefinition Width="auto"/>-->
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <controls:ImageButton Source="ic_back"
+                                      Grid.Column="0"
+                                      WidthRequest="25"
+                                      HeightRequest = "25"
+                                      Command="{Binding BackCommand}"/>
+            <controls:CrossButton Grid.Column="1"
+                                  x:Name="notes"
+                                  Style="{StaticResource ButtonTopMenu}"
+                                  BackgroundColor="{Binding BackgroundNotes, Mode=TwoWay}"
+                                  Text="Notes"
+                                  IsVisible="{Binding DataTopMemu.Notes}"
+                                  Clicked="TopMenuItemSelected"/>
+            <controls:CrossButton Grid.Column="2"
+                                  x:Name="sketch"
+                                  Style="{StaticResource ButtonTopMenu}"
+                                  BackgroundColor="{Binding BackgroundSketch, Mode=TwoWay}"
+                                  Text="Sketch"
+                                  IsVisible="{Binding DataTopMemu.Sketch}"
+                                  Clicked="TopMenuItemSelected"/>
+            <!--<controls:CrossButton Image="ic_photo_camera.png"
+                                      Grid.Column="3"
+                                      Style="{StaticResource ButtonTopMenu}"
+                                      Text="Card"
+                                      Command="{Binding CardCommand}"
+                                      IsVisible="{Binding DataTopMemu.Card}"/>-->
+            <controls:CrossButton Image="ic_photo_camera.png"
+                                  x:Name="object"
+                                  Grid.Column="3"
+                                  Style="{StaticResource ButtonTopMenu}"
+                                  BackgroundColor="{Binding BackgroundObject, Mode=TwoWay}"
+                                  Text="Object"
+                                  IsVisible="{Binding DataTopMemu.Object}"
+                                  Clicked="TopMenuItemSelected"/>
+            <controls:CrossButton Image="ic_photo_camera.png"
+                                  x:Name="attachment"
+                                  Grid.Column="4"
+                                  Style="{StaticResource Key=ButtonTopMenu}"
+                                  BackgroundColor="{Binding BackgroundAttachment, Mode=TwoWay}"
+                                  Text="Attachment"
+                                  IsVisible="{Binding DataTopMemu.Attachment}"
+                                  Clicked="TopMenuItemSelected"/>
+            <controls:CrossButton BackgroundColor="#0DAE02"
+                                  CornerRadius="5"
+                                  TextColor="White"
+                                  FontSize="16"
+                                  Grid.Column="5"
+                                  Text="Save and Close"
+                                  Upper="True"
+                                  Padding="8,0"
+                                  Margin="0,5,5,5"
+                                  HorizontalOptions="EndAndExpand"
+                                  VerticalOptions="Center"
+                                  Command="{Binding SaveCommand}"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

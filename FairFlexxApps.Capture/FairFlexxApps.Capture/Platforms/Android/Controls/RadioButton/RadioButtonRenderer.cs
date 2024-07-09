@@ -26,8 +26,10 @@ using Android.Graphics;
 using Android.Widget;
 using FotoScan.Tablet.Controls.RadioButton;
 using FotoScan.Tablet.Droid.Controls.RadioButton;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
+using Microsoft.Maui.Controls.Platform;
 
 [assembly: ExportRenderer(typeof (CustomRadioButton), typeof (RadioButtonRenderer))]
 namespace FotoScan.Tablet.Droid.Controls.RadioButton

@@ -58,20 +58,61 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Platforms\Android\Controls\RadioButton\**" />
     <Compile Remove="Platforms\Android\FotoScanSdk\**" />
+    <Compile Remove="Platforms\Android\Services\FotoScanSdk\**" />
     <Compile Remove="Resources\layout\**" />
+    <EmbeddedResource Remove="Platforms\Android\Controls\RadioButton\**" />
     <EmbeddedResource Remove="Platforms\Android\FotoScanSdk\**" />
+    <EmbeddedResource Remove="Platforms\Android\Services\FotoScanSdk\**" />
     <EmbeddedResource Remove="Resources\layout\**" />
+    <MauiCss Remove="Platforms\Android\Controls\RadioButton\**" />
     <MauiCss Remove="Platforms\Android\FotoScanSdk\**" />
+    <MauiCss Remove="Platforms\Android\Services\FotoScanSdk\**" />
     <MauiCss Remove="Resources\layout\**" />
+    <MauiXaml Remove="Platforms\Android\Controls\RadioButton\**" />
     <MauiXaml Remove="Platforms\Android\FotoScanSdk\**" />
+    <MauiXaml Remove="Platforms\Android\Services\FotoScanSdk\**" />
     <MauiXaml Remove="Resources\layout\**" />
+    <None Remove="Platforms\Android\Controls\RadioButton\**" />
     <None Remove="Platforms\Android\FotoScanSdk\**" />
+    <None Remove="Platforms\Android\Services\FotoScanSdk\**" />
     <None Remove="Resources\layout\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Platforms\Android\Controls\CameraControlView.cs" />
+    <Compile Remove="Platforms\Android\Controls\CustomRadioButtonRenderer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Platforms\Android\Resources\drawable\accept.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\BorderWithShadow.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\bottom_shadow.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\circle.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\CircleButton.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\demoimage.jpg" />
+    <None Remove="Platforms\Android\Resources\drawable\hint_green.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\hint_red.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\hint_white.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\loading.png" />
+    <None Remove="Platforms\Android\Resources\drawable\reject.xml" />
+    <None Remove="Platforms\Android\Resources\drawable\splash_logo.png" />
+    <None Remove="Platforms\Android\Resources\drawable\top_shadow.xml" />
+    <None Remove="Platforms\Android\Resources\layout\activity_scan.axml" />
     <None Remove="Platforms\Android\Resources\layout\CameraLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\CameraViewDemo.axml" />
+    <None Remove="Platforms\Android\Resources\layout\EditLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\FilterLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\holder_brightness.xml" />
+    <None Remove="Platforms\Android\Resources\layout\holder_contrast.xml" />
+    <None Remove="Platforms\Android\Resources\layout\holder_white_balance.xml" />
+    <None Remove="Platforms\Android\Resources\layout\imagecroppinglayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\ImagePreviewLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\ImageViewCell.axml" />
+    <None Remove="Platforms\Android\Resources\layout\Main.axml" />
+    <None Remove="Platforms\Android\Resources\layout\ResizeDialogLayout.axml" />
+    <None Remove="Platforms\Android\Resources\layout\SingleImagePreviewLayout.axml" />
     <None Remove="Resources\AppIcon\accept.xml" />
     <None Remove="Resources\AppIcon\appiconfg.svg" />
     <None Remove="Resources\AppIcon\border_with_shadow.xml" />
@@ -101,6 +142,7 @@
 
   <ItemGroup>
     <PackageReference Include="BarcodeScanner.Mobile.Maui" Version="8.0.40.1" />
+    <PackageReference Include="CommunityToolkit.Maui" Version="9.0.2" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="FFImageLoadingCompat.Maui" Version="0.1.1" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
@@ -120,6 +162,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Behaviors\SketchSignature\" />
     <Folder Include="Services\Navigation\" />
   </ItemGroup>
 
@@ -133,10 +176,6 @@
     <PackageReference Include="Xamarin.OpenCV.Droid">
       <Version>3.4.2</Version>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <MauiXaml Include="Platforms\Android\Resources\layout\CameraLayout.axml" />
   </ItemGroup>
 
 </Project>

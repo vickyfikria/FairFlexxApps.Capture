@@ -11,6 +11,7 @@ using FairFlexxApps.Capture.Droid.FotoScanSdk.Utils;
 using FairFlexxApps.Capture.Droid.FotoScanSdk.Constants;
 using Org.Opencv.Core;
 using static Android.Hardware.Camera.Parameters;
+using Java.Interop;
 
 namespace FairFlexxApps.Capture.Droid.Controls
 {
@@ -24,6 +25,7 @@ namespace FairFlexxApps.Capture.Droid.Controls
         private int height, width;
         Context context;
         bool _isBusy = false;
+
 
         public CameraControlView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
@@ -124,5 +126,6 @@ namespace FairFlexxApps.Capture.Droid.Controls
                 return imageByteArray;
             }
         }
+
     }
 }

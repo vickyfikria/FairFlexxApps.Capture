@@ -12,10 +12,14 @@ using FairFlexxApps.Capture.Services.HttpService;
 using FairFlexxApps.Capture.Interfaces.HttpService;
 using FairFlexxApps.Capture.Interfaces.LocalDatabase;
 using FairFlexxApps.Capture.Services.LocalDatabase;
-
+using CommunityToolkit.Maui;
 using FairFlexxApps.Capture.Droid.Utilities;
 using FairFlexxApps.Capture.Droid.Services.SQLiteService;
 using BarcodeScanner.Mobile;
+using FairFlexxApps.Capture.Controls.RadioButton;
+using FotoScan.Tablet.Droid.Controls;
+using FairFlexxApps.Capture.Droid.Controls;
+using FairFlexxApps.Capture.Controls;
 
 namespace FairFlexxApps.Capture
 {
@@ -43,6 +47,7 @@ namespace FairFlexxApps.Capture
                 //})
                 .UseFFImageLoading()
                 .UseSkiaSharp()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(
                     fonts =>
                     {
@@ -58,6 +63,15 @@ namespace FairFlexxApps.Capture
                 .ConfigureMauiHandlers(handlers =>
                 {
                     handlers.AddBarcodeScannerHandler();
+#if ANDROID
+                    handlers.AddHandler(typeof(CustomRadioButton), typeof(CustomRadioButtonRenderer));
+                    handlers.AddHandler(typeof(CrossButton), typeof(CrossButtonRenderer));
+                    handlers.AddHandler(typeof(CustomCheckBox), typeof(CustomCheckBoxRenderer));
+                    handlers.AddHandler(typeof(CustomEditor), typeof(CustomEditorRenderer));
+                    handlers.AddHandler(typeof(CustomEntry), typeof(CustomEntryRenderer));
+                    handlers.AddHandler(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer));
+#endif
+
                 })
                 .ConfigureMopups()
                 .RegisterAppServices()

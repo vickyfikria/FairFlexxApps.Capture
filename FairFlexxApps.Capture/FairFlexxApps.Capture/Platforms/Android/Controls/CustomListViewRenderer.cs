@@ -1,7 +1,8 @@
 ﻿using Android.Content;
 using FairFlexxApps.Capture.Droid.Controls;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using Microsoft.Maui.Controls.Platform;
 
 [assembly: ExportRenderer(typeof(ListView), typeof(CustomListViewRenderer))]
 

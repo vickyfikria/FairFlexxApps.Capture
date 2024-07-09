@@ -6,12 +6,16 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+
 using FairFlexxApps.Capture.Droid.Controls;
 using FairFlexxApps.Capture.Controls;
 using System.Globalization;
 using System.ComponentModel;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using TimePicker = Microsoft.Maui.Controls.TimePicker;
 
 [assembly: ExportRenderer(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer))]
 namespace FairFlexxApps.Capture.Droid.Controls
@@ -24,7 +28,7 @@ namespace FairFlexxApps.Capture.Droid.Controls
         {
         }
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.TimePicker> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<TimePicker> e)
         {
             base.OnElementChanged(e);
 

@@ -1,11 +1,11 @@
 ﻿using Android.Content;
 using Android.Content.Res;
-using Android.Support.V7.Widget;
 using Android.Widget;
+using AndroidX.AppCompat.Widget;
 using FairFlexxApps.Capture.Controls;
 using FairFlexxApps.Capture.Droid.Controls;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 
 [assembly: ExportRenderer(typeof(CustomCheckBox), typeof(CustomCheckBoxRenderer))]
 namespace FairFlexxApps.Capture.Droid.Controls

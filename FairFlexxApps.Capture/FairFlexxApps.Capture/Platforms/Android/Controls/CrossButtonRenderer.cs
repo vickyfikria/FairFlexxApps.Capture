@@ -2,13 +2,16 @@
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.Support.V4.Content;
+
 using Android.Util;
 using Android.Views;
+using AndroidX.Core.Content;
 using FairFlexxApps.Capture.Controls;
 using FairFlexxApps.Capture.Droid.Controls;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
+using Microsoft.Maui.Controls.Platform;
 
 [assembly: ExportRenderer(typeof(CrossButton), typeof(CrossButtonRenderer))]
 namespace FairFlexxApps.Capture.Droid.Controls

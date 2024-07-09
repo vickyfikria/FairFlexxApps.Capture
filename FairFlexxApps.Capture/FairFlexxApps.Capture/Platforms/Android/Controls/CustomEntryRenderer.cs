@@ -1,12 +1,14 @@
 ﻿using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.Support.V4.Content;
+
 using FairFlexxApps.Capture.Controls;
 using FairFlexxApps.Capture.Droid.Controls;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
-using Color = Xamarin.Forms.Color;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using Microsoft.Maui.Controls.Platform;
+using Color = Microsoft.Maui.Graphics.Color;
+
 
 [assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
 namespace FairFlexxApps.Capture.Droid.Controls

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="FairFlexxApps.Capture.Views.ViewCells.UploadLeadListContentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture">
+    <ContentView.Content>
+        <StackLayout Padding="0" Spacing="0">
+            <Label
+                x:Name="lblEventName"
+                Margin="10,15"
+                FontSize="{DynamicResource HugeLabelFont}"
+                HorizontalOptions="{OnIdiom Tablet=Start,
+                                            Phone=Center}"
+                Text="EventName"
+                TextColor="{DynamicResource BlackColor}" />
+            <StackLayout
+                x:Name="FrameUpload"
+                Padding="{DynamicResource PageTitlePadding}"
+                HorizontalOptions="{OnIdiom Tablet=CenterAndExpand,
+                                            Phone=FillAndExpand}"
+                Spacing="15">
+                <StackLayout.Margin>
+                    <OnIdiom
+                        x:TypeArguments="Thickness"
+                        Phone="10"
+                        Tablet="50,20" />
+                </StackLayout.Margin>
+                <Label
+                    FontSize="{DynamicResource SuperLargeLabelFont}"
+                    HorizontalOptions="{OnIdiom Tablet=Start,
+                                                Phone=Center}"
+                    Text="{localization:TranslateExtension Upload}"
+                    TextColor="{DynamicResource BlackColor}" />
+                <Label
+                    FontSize="{DynamicResource NormalLabelFont}"
+                    Text="{localization:TranslateExtension EventContent}"
+                    TextColor="{DynamicResource BlackColor}" />
+
+                <!--  Upload button  -->
+                <Grid
+                    Padding="15"
+                    BackgroundColor="{StaticResource BlueColor}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="{OnIdiom Tablet=FillAndExpand}">
+                    <Grid.Margin>
+                        <OnIdiom
+                            x:TypeArguments="Thickness"
+                            Phone="0,10"
+                            Tablet="0,25" />
+                    </Grid.Margin>
+                    <Frame Style="{DynamicResource FrameStylev1}">
+                        <Label
+                            x:Name="lblLeadNumbers"
+                            FontSize="{DynamicResource NormalLabelFont}"
+                            HorizontalOptions="Center"
+                            Text="{Binding LeadNumbers}"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                    </Frame>
+                    <Label
+                        FontSize="{DynamicResource NormalLabelFont}"
+                        HorizontalOptions="Center"
+                        Text="{localization:TranslateExtension UploadLeads,
+                                                               Upper=True}"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UploadLeadsCommand}" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

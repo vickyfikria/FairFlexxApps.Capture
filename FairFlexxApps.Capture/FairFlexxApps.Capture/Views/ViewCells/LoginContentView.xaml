@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="FairFlexxApps.Capture.Views.ViewCells.LoginContentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+    xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout
+                x:Name="FrameLogin"
+                Padding="{StaticResource PageTitlePadding}"
+                HorizontalOptions="CenterAndExpand">
+                <StackLayout.Margin>
+                    <OnIdiom
+                        x:TypeArguments="Thickness"
+                        Phone="15"
+                        Tablet="0,20,0,0" />
+                </StackLayout.Margin>
+                <Label
+                    x:Name="titleLogin"
+                    FontSize="{DynamicResource LargeLabelFont}"
+                    Text="{localization:TranslateExtension Login}"
+                    TextColor="DimGray">
+                    <Label.Margin>
+                        <OnIdiom
+                            x:TypeArguments="Thickness"
+                            Phone="0"
+                            Tablet="50,0" />
+                    </Label.Margin>
+                </Label>
+                <Label
+                    x:Name="uploadContent"
+                    FontSize="{DynamicResource NormalLabelFont}"
+                    Text="{localization:TranslateExtension UploadContent}"
+                    TextColor="DimGray">
+                    <Label.Margin>
+                        <OnIdiom
+                            x:TypeArguments="Thickness"
+                            Phone="0"
+                            Tablet="50,0" />
+                    </Label.Margin>
+                </Label>
+
+                <StackLayout
+                    x:Name="stack"
+                    Margin="0,10,0,0"
+                    Padding="50,25,50,40"
+                    BackgroundColor="#D3D3D3">
+                    <!--  Username field  -->
+                    <Label
+                        FontSize="{DynamicResource NormalLabelFont}"
+                        Text="{localization:TranslateExtension Username}"
+                        TextColor="DimGray" />
+                    <controls:CustomEntry
+                        x:Name="entUserName"
+                        BackgroundColor="White"
+                        FontSize="{DynamicResource SmallLabelFont}"
+                        HasRoundedCorner="true"
+                        MaxLength="20"
+                        Text="{Binding Username}" />
+
+                    <!--  Password field  -->
+                    <Label
+                        Margin="0,10,0,0"
+                        FontSize="{DynamicResource NormalLabelFont}"
+                        Text="{localization:TranslateExtension Password}"
+                        TextColor="DimGray" />
+                    <Grid HeightRequest="{Binding Source={x:Reference entUserName}, Path=Value}">
+                        <controls:CustomEntry
+                            x:Name="entPassword"
+                            BackgroundColor="White"
+                            BorderWidth="1"
+                            FontSize="{DynamicResource NormalLabelFont}"
+                            HasRoundedCorner="true"
+                            HeightRequest="{Binding Source={x:Reference entUserName}, Path=Value}"
+                            Image="ic_EyePassword.png"
+                            ImageHeight="20"
+                            ImageWidth="20"
+                            IsPassword="True"
+                            MaxLength="20"
+                            Text="{Binding Password}" />
+                        <BoxView
+                            HeightRequest="{Binding Source={x:Reference entUserName}, Path=Value}"
+                            HorizontalOptions="End"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="30"
+                            Color="Transparent">
+                            <BoxView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </BoxView.GestureRecognizers>
+                        </BoxView>
+                    </Grid>
+
+                    <!--  Login button  -->
+                    <controls:CrossButton
+                        Margin="0,20,0,0"
+                        BackgroundColor="#009933"
+                        Command="{Binding LoginCommand}"
+                        FontSize="{DynamicResource NormalLabelFont}"
+                        Text="{localization:TranslateExtension Login}"
+                        TextColor="White"
+                        Upper="True" />
+                </StackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.NotesContentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls"
+    xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture">
+    <ContentView.Content>
+        <controls:KeyboardView Padding="10,0,5,10" RowDefinitions="auto,*">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="{DynamicResource LargeLabelFont}"
+                Text="{localization:Translate Notes}" />
+            <controls:CustomEditor
+                x:Name="editorText"
+                Grid.Row="1"
+                AutoSize="TextChanges"
+                BackgroundColor="LightGray"
+                FontSize="{DynamicResource NormalLabelFont}"
+                HorizontalOptions="FillAndExpand"
+                IsBorderlessUnderline="True"
+                IsTabStop="False"
+                Placeholder="{localization:Translate EnterHere}"
+                PlaceholderColor="DimGray"
+                Text="{Binding NewLead.Notes}"
+                TextColor="Black" />
+
+        </controls:KeyboardView>
+    </ContentView.Content>
+</ContentView>

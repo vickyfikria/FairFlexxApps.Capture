@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="FairFlexxApps.Capture.Views.ViewCells.BusinessCardViewCell">
+    <ViewCell.View>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="0">
+                
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="EndAndExpand"
+                             Spacing="0">
+                    <controls:ImageButton Source="ic_flip"
+                                          WidthRequest="20"
+                                          HeightRequest="20"
+                                          VerticalOptions="CenterAndExpand">
+                        <controls:ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="FlipBusinessCardOnTapped"/>
+                        </controls:ImageButton.GestureRecognizers>
+                    </controls:ImageButton>
+                    <controls:ImageButton Source="ic_cancel"
+                                          WidthRequest="20"
+                                          HeightRequest="20"
+                                          VerticalOptions="CenterAndExpand"
+                                          Margin="20,0,0,0">
+                        <controls:ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="DeleteBusinessCardOnTapped"/>
+                        </controls:ImageButton.GestureRecognizers>
+                    </controls:ImageButton>
+                </StackLayout>
+            </StackLayout>
+
+            <Grid HorizontalOptions="FillAndExpand"
+                  HeightRequest="375"
+                  BackgroundColor="DimGray"
+                  Padding="1"
+                  Margin="0,0,0,30">
+
+                <Grid HorizontalOptions="FillAndExpand"
+                                          BackgroundColor="White">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ZoomImageCard"/>
+                    </Grid.GestureRecognizers>
+                    <forms:CachedImage x:Name="SourceCard"
+                                       CacheType="None"
+                                       Aspect="AspectFit"/>
+
+                </Grid>
+
+            </Grid>
+
+            <!--<Grid HorizontalOptions="FillAndExpand"
+                                      HeightRequest="375"
+                                      BackgroundColor="DimGray"
+                                      Padding="1"
+                                      Margin="0,0,0,30">
+
+                                    <Grid HorizontalOptions="FillAndExpand"
+                                          BackgroundColor="White">
+
+                                        <abstractions:CarouselViewControl x:Name="carouselViewControl"
+                                                                          ItemsSource="{Binding ScannerResult}"
+                                                                          Position="{Binding Position, Mode=TwoWay}"
+                                                                          VerticalOptions="FillAndExpand" 
+                                                                          HorizontalOptions="FillAndExpand"
+                                                                          Margin="5">
+                                            <abstractions:CarouselViewControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid VerticalOptions="FillAndExpand"
+                                                          HorizontalOptions="FillAndExpand">
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.ZoomImageCommand, 
+                                                                    Source={x:Reference Name=carouselViewControl}}"
+                                                                                  CommandParameter="{Binding}"/>
+                                                        </Grid.GestureRecognizers>
+                                                        <forms:CachedImage CacheType="None"
+                                                                           Aspect="AspectFit"
+                                                                           Source="{Binding ByteImage}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </abstractions:CarouselViewControl.ItemTemplate>
+                                        </abstractions:CarouselViewControl>
+
+                                    </Grid>
+
+                                </Grid>-->
+
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>

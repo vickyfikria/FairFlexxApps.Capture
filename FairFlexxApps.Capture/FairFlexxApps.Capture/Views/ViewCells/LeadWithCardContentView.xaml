@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="FairFlexxApps.Capture.Views.ViewCells.LeadWithCardContentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+    xmlns:converters="clr-namespace:FairFlexxApps.Capture.Converters;assembly=FairFlexxApps.Capture"
+    xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:viewCells="clr-namespace:FairFlexxApps.Capture.Views.ViewCells;assembly=FairFlexxApps.Capture"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:NewCardTextConverter x:Key="NewCardTextConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid
+            Padding="8,0"
+            BackgroundColor="White"
+            HeightRequest="{Binding HeightOfContent}">
+
+            <!--  Business card missing  -->
+            <StackLayout x:Name="stBusinessCardMissing" Spacing="0">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="{DynamicResource NormalLabelFont}"
+                    Text="{localization:Translate VisitorMissed}" />
+            </StackLayout>
+            <StackLayout x:Name="stBusinessCard">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="{DynamicResource LargeLabelFont}"
+                    Text="{localization:Translate BusinessCard}" />
+                <!--  List view  -->
+                <ListView
+                    x:Name="grBusinessCard"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding LeadTypeFiles}"
+                    SelectionMode="None"
+                    SeparatorVisibility="None">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <viewCells:BusinessCardViewCell />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListView.Footer>
+                        <StackLayout>
+                            <Grid
+                                Margin="0,0,0,20"
+                                Padding="1"
+                                BackgroundColor="DimGray"
+                                HeightRequest="375"
+                                HorizontalOptions="FillAndExpand">
+                                <Grid
+                                    BackgroundColor="White"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand">
+                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                        <controls:ImageButton
+                                            Command="{Binding ScanCommand}"
+                                            CommandParameter="BusinessCard"
+                                            Source="btn_Plus"
+                                            Style="{DynamicResource ImageButtonSize}" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="{DynamicResource NormalLabelFont}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="{Binding LeadTypeFiles, Converter={StaticResource NewCardTextConverter}}" />
+                                    </StackLayout>
+                                </Grid>
+                            </Grid>
+                            <Frame  
+                                x:Name="continue_button"
+                                Margin="0,0,0,20" 
+                                HorizontalOptions="EndAndExpand"
+                                BackgroundColor="{StaticResource BlueColor}"
+                                Padding="5">
+                                <Label 
+                                    FontSize="{DynamicResource NormalLabelFont}" Text="{localization:Translate Continue}"
+                                    TextColor="{StaticResource WhiteColor}">
+                                </Label>
+                            </Frame>
+                            <!--<controls:CrossButton
+                                x:Name="continue_button"
+                                Margin="0,0,0,20"
+                                Padding="5"
+                                BackgroundColor="{StaticResource BlueColor}"
+                                FontSize="{DynamicResource NormalLabelFont}"
+                                HorizontalOptions="EndAndExpand"
+                                Text="{localization:Translate Continue}"
+                                TextColor="{StaticResource WhiteColor}"
+                                Upper="false" />-->
+                            <!--<controls:CrossButton x:Name="SwitchNoCardButton"
+                                                  Text="No Card"
+                                                  TextColor="{DynamicResource BlackColor}"
+                                                  BorderColor="{DynamicResource BlackColor}"
+                                                  BackgroundColor="{DynamicResource WhiteColor}"
+                                                  HorizontalOptions="CenterAndExpand"
+                                                  VerticalOptions="CenterAndExpand"
+                                                  Upper="False"
+                                                  Margin="0,0,0,20"/>-->
+                            <controls:FrameButton
+                                Margin="0,0,0,20"
+                                Padding="10,5"
+                                BackgroundColor="{DynamicResource WhiteColor}"
+                                BorderColor="{DynamicResource BlackColor}"
+                                Command="{Binding SwitchCardButtonHandlerCommand}"
+                                CornerRadius="0"
+                                HasShadow="False"
+                                HeightRequest="25"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="{localization:Translate NoCard}"
+                                TextColor="{DynamicResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                <Label
+                                    FontSize="{DynamicResource NormalLabelFont}"
+                                    Text="{localization:Translate NoCard}"
+                                    VerticalOptions="CenterAndExpand" />
+                            </controls:FrameButton>
+
+                        </StackLayout>
+                    </ListView.Footer>
+
+                </ListView>
+            </StackLayout>
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

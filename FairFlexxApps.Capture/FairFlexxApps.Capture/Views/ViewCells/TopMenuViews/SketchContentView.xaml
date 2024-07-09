@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:sketchsignature="clr-namespace:FairFlexxApps.Capture.Behaviors.SketchSignature"
+             xmlns:customControls="clr-namespace:FairFlexxApps.Capture.Controls"
+             xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+             x:Class="FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.SketchContentView">
+  <ContentView.Content>
+    <StackLayout BackgroundColor="White"
+             x:Name="Stack"
+             SizeChanged="Stack_SizeChanged"
+             Padding="8,5,0,12">
+      <Label Text="{localization:Translate Sketch}"
+             FontAttributes="Bold"
+             FontSize="{DynamicResource LargeLabelFont}"/>
+
+      <customControls:CrossButton Text="{localization:Translate Clear}"
+                                  TextColor="DimGray"
+                                  FontSize="{DynamicResource NormalLabelFont}"
+                                  Upper="False"
+                                  CornerRadius="10"
+                                  BackgroundColor="White"
+                                  x:Name="clearButton"
+                                  BorderColor="DimGray"
+                                  BorderWidth="1"
+                                  Padding="0"
+                                  HorizontalOptions="Start"
+                                  Command="{Binding ClearSketchCommand}"/>
+      <controls:SignaturePadView x:Name="signatureView"
+                             CaptionText="" SignatureLineWidth="0" PromptText="" ClearText=""
+                             BackgroundColor="#A1D3D3D3"
+                             StrokeColor="DimGray"
+                             VerticalOptions="FillAndExpand">
+        <controls:SignaturePadView.Behaviors>
+          <sketchsignature:CaptureSignaturePointsBehavior Points="{Binding CurrentSignature}" />
+        </controls:SignaturePadView.Behaviors>
+      </controls:SignaturePadView>
+    </StackLayout>
+  </ContentView.Content>
+</ContentView>

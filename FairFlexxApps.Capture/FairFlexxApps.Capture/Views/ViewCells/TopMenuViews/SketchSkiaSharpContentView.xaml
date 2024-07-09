@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:touchTracking="clr-namespace:FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking;assembly=FairFlexxApps.Capture"
+             xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls"
+             xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+             xmlns:converters="clr-namespace:FairFlexxApps.Capture.Converters"
+             x:Class="FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.SketchSkiaSharpContentView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:TranslateEnumConverter x:Key="TranslateEnumConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="0"
+                         Grid.Column="0" Grid.ColumnSpan="3"
+                         Orientation="Horizontal"
+                         Spacing="0">
+
+                <controls:CrossButton Text="{localization:Translate Undo}"
+                                      Upper="False"
+                                      x:Name="btnUndo"
+                                      HorizontalOptions="Start"
+                                      VerticalOptions="Center"
+                                      Clicked="OnUndoButtonClicked" 
+                                      IsEnabled="False"
+                                      BorderColor="{DynamicResource DimGrayColor}"
+                                      BorderWidth="1"
+                                      BackgroundColor="{DynamicResource WhiteColor}"
+                                      TextColor="{DynamicResource DimGrayColor}"
+                                      Padding="15,0"/>
+
+                <controls:CrossButton Text="{localization:Translate Redo}"
+                                      Upper="False"
+                                      x:Name="btnRedo"
+                                      HorizontalOptions="Start"
+                                      VerticalOptions="Center"
+                                      Clicked="OnRedoButtonClicked"
+                                      Margin="5,0,0,0"
+                                      IsEnabled="False"
+                                      BorderColor="{DynamicResource DimGrayColor}"
+                                      BorderWidth="1"
+                                      BackgroundColor="{DynamicResource WhiteColor}"
+                                      TextColor="{DynamicResource DimGrayColor}"
+                                      Padding="15,0"/>
+
+                <controls:CrossButton Text="{localization:Translate Clear}"
+                                      Upper="False"
+                                      HorizontalOptions="EndAndExpand"
+                                      VerticalOptions="Center"
+                                      Clicked="OnClearButtonClicked" 
+                                      BorderColor="{DynamicResource DimGrayColor}"
+                                      BorderWidth="1"
+                                      BackgroundColor="{DynamicResource WhiteColor}"
+                                      TextColor="{DynamicResource DimGrayColor}"
+                                      Padding="15,0"/>
+
+            </StackLayout>
+
+            <Picker x:Name="colorPicker"
+                    Title="Color"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    ItemDisplayBinding="{Binding ., Converter={StaticResource TranslateEnumConverter}}" >
+                <!--<Picker.Items>
+                    <x:String>Red</x:String>
+                    <x:String>Green</x:String>
+                    <x:String>Aqua</x:String>
+                    <x:String>Blue</x:String>
+                    <x:String>Fuchsia</x:String>
+                    <x:String>Yellow</x:String>
+                    <x:String>Black</x:String>
+                    <x:String>Gray</x:String>
+                    <x:String>White</x:String>
+                </Picker.Items>-->
+
+                <!--<Picker.SelectedIndex>
+                    3
+                </Picker.SelectedIndex>-->
+            </Picker>
+
+            <Picker x:Name="widthPicker"
+                    Title="Width"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    ItemDisplayBinding="{Binding ., Converter={StaticResource TranslateEnumConverter}}" >
+                <!--<Picker.Items>
+                    <x:String>Thin</x:String>
+                    <x:String>Thinish</x:String>
+                    <x:String>Medium</x:String>
+                    <x:String>Thickish</x:String>
+                    <x:String>Thick</x:String>
+                </Picker.Items>-->
+
+                <!--<Picker.SelectedIndex>
+                    2
+                </Picker.SelectedIndex>-->
+            </Picker>
+            
+            <!-- Enclose SKCanvasView in single-cell Grid. 
+                Otherwise, iOS won't get the touch events. -->
+
+            <Grid Grid.Row="2"
+              Grid.Column="0"
+              Grid.ColumnSpan="3"
+              BackgroundColor="White">
+
+                <forms:SKCanvasView x:Name="canvasView"
+                               PaintSurface="OnCanvasViewPaintSurface"
+                               BackgroundColor="White"/>
+                <Grid.Effects>
+                    <touchTracking:TouchEffect Capture="True"
+                                TouchAction="OnTouchEffectAction"/>
+                </Grid.Effects>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui;
 
 using Android.Views;
 using FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking;

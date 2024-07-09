@@ -1,14 +1,17 @@
-﻿using FairFlexxApps.Capture.Controls;
+﻿using Android.Content;
+using FairFlexxApps.Capture.Controls;
 using FairFlexxApps.Capture.Droid.Controls;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using Microsoft.Maui.Controls.Platform;
+
 
 [assembly: ExportRenderer(typeof(CustomEditor), typeof(CustomEditorRenderer))]
 namespace FairFlexxApps.Capture.Droid.Controls
 {
     public class CustomEditorRenderer : EditorRenderer
     {
-        public CustomEditorRenderer() : base()
+        public CustomEditorRenderer(Context context) : base(context)
         {
         }
 
