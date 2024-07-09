@@ -28,15 +28,25 @@ Exclude/ignore folders below from csproj FairFlexxApps.Capture :
 
 ## Nuget Xamarin Form replacement
 Rgs.Plugin -> Mopups
+
 SkiaSharp.Forms -> SkiaSharp, SkiaSharp.Views.Maui.Controls, SkiaSharp.Views.Maui.Core
+
 FFImageLoading -> FFImageLoadingCompat.Maui
+
 Prism.Forms -> Prism.DryIoc.Maui
+
 GoogleVisionBarCode -> BarcodeScanner.Mobile.Maui
+
 AppCenter -> same
+
 SignaturePad -> ?
+
 OpenCV (?) -> Xamarin.OpenCV.Droid
+
 Plugin.Connectivity -> CommunityToolkit.Maui
+
 Plugin.SecureStorage -> CommunityToolkit.Maui
+
 vcardreader (?) -> VCardReader
 
 ## SignaturePad 
