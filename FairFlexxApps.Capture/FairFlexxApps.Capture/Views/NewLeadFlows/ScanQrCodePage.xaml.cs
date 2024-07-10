@@ -31,16 +31,31 @@ namespace FairFlexxApps.Capture.Views.NewLeadFlows
                 IsAppeared = true;
 
 
-                bool allowed = await Methods.AskForRequiredPermission();
+                //bool allowed = await Methods.AskForRequiredPermission();
 
-                //bool allowed = await CheckCameraPermission();
+                var camerastatus = PermissionStatus.Unknown;
 
-                if (!allowed)
+                camerastatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
+                if (camerastatus == PermissionStatus.Granted)
+                    return;
+
+                if (Permissions.ShouldShowRationale<Permissions.Camera>())
                 {
                     await MessagePopup.Instance.Show(message: TranslateExtension.Get("GrantPermissionCamera"),
                         closeButtonText: "OK", textBackgroundColor: "#bdbdbd",
                         closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
+                }
 
+                camerastatus = await Permissions.RequestAsync<Permissions.Camera>();
+                //old
+                //bool allowed = await CheckCameraPermission();
+                //if(!allowed)
+
+                if (camerastatus != PermissionStatus.Granted)
+                {
+                    await MessagePopup.Instance.Show(message: TranslateExtension.Get("GrantPermissionCamera"),
+                        closeButtonText: "OK", textBackgroundColor: "#bdbdbd",
+                        closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
                 }
                 else
                 {
