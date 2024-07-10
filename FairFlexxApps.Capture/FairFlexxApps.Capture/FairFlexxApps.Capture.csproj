@@ -44,7 +44,6 @@
     <MauiIcon Include="Resources\AppIcon\icon.png" />
 
     <!-- Splash Screen -->
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" />
     <MauiSplashScreen Include="Resources\Splash\splash_logo.png" />
 
     <!-- Images -->
@@ -176,6 +175,15 @@
     <PackageReference Include="Xamarin.OpenCV.Droid">
       <Version>3.4.2</Version>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FotoScanSdk">
+      <HintPath>..\..\..\FotoScanSdk\FotoScanSdk\FotoScanSdk\bin\Release\netstandard2.0\FotoScanSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="FotoScanSdk.Abstractions">
+      <HintPath>..\..\..\FotoScanSdk\FotoScanSdk\FotoScanSdk\bin\Release\netstandard2.0\FotoScanSdk.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
