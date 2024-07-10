@@ -4,26 +4,30 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Xaml;
 
 
 using FairFlexxApps.Capture.ViewModels;
 using SkiaSharp;
-using SkiaSharp.Views.Forms;
+
 using System.Reflection;
 using FairFlexxApps.Capture.ViewModels.NewLeadFlows;
 using FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking;
 using FairFlexxApps.Capture.Enums.Templates;
+using SkiaSharp.Views.Maui;
 
 namespace FairFlexxApps.Capture.Views.ViewCells.TopMenuViews
-{
+{               
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SketchSkiaSharpContentView : ContentView
 	{
 		public SketchSkiaSharpContentView ()
 		{
 			InitializeComponent ();
+
+            
+
 
             colorPicker.ItemsSource = colors;
             colorPicker.SelectedIndex = 3;

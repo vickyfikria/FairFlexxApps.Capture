@@ -1,7 +1,4 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace FairFlexxApps.Capture.Views.ViewCells.TopMenuViews
+﻿namespace FairFlexxApps.Capture.Views.ViewCells.TopMenuViews
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NotesContentView : ContentView

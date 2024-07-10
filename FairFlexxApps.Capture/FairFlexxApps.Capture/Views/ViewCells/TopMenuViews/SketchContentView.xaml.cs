@@ -1,16 +1,7 @@
-﻿using FairFlexxApps.Capture.ViewModels;
-using SignaturePad.Forms;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using FairFlexxApps.Capture.ViewModels.NewLeadFlows;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace FairFlexxApps.Capture.Views.ViewCells.TopMenuViews
 {
@@ -61,6 +52,7 @@ namespace FairFlexxApps.Capture.Views.ViewCells.TopMenuViews
                     //display the signature
                     //ImageSource imageSource = null;
                     //imageSource = ImageSource.FromStream(() => new MemoryStream(image));
+
                 }
                 catch (Exception e)
                 {

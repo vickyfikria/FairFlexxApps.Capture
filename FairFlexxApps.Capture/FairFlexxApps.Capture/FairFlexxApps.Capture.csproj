@@ -82,6 +82,11 @@
   <ItemGroup>
     <Compile Remove="Platforms\Android\Controls\CameraControlView.cs" />
     <Compile Remove="Platforms\Android\Controls\CustomRadioButtonRenderer.cs" />
+    <Compile Remove="Views\ViewCells\TopMenuViews\SketchContentView.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Remove="Views\ViewCells\TopMenuViews\SketchContentView.xaml" />
   </ItemGroup>
 
   <ItemGroup>

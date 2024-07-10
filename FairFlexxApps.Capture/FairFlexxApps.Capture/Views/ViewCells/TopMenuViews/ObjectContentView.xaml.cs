@@ -3,8 +3,8 @@ using FairFlexxApps.Capture.ViewModels.NewLeadFlows;
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace FairFlexxApps.Capture.Views.ViewCells.TopMenuViews
 {
@@ -25,7 +25,7 @@ namespace FairFlexxApps.Capture.Views.ViewCells.TopMenuViews
 			var item = (ScannerResult)sender;
 			var byteImage = item.ByteImage;
 			var stream = new MemoryStream(byteImage);
-			var imageSource = Xamarin.Forms.ImageSource.FromStream(() => stream);
+			var imageSource = ImageSource.FromStream(() => stream);
 			imgView.Source = imageSource;
 
 			//NewLeadTemplatePageViewModel.ImageView -= ShowImage;
