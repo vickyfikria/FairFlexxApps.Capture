@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePage
+    x:Class="FairFlexxApps.Capture.Views.NewLeadFlows.NewLeadTemplatePhonePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:FairFlexxApps.Capture.Views.Base;assembly=FairFlexxApps.Capture"
+    xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
+    xmlns:converters="clr-namespace:FairFlexxApps.Capture.Converters;assembly=FairFlexxApps.Capture"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls" 
+    xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:viewCells="clr-namespace:FairFlexxApps.Capture.Views.ViewCells;assembly=FairFlexxApps.Capture"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="Automatic"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BoolToColorConverter
+                x:Key="BoolToBackgroundColorConverter"
+                FalseValue="White"
+                TrueValue="{StaticResource BlueColor}" />
+            <converters:BoolToColorConverter
+                x:Key="BoolToTextColorConverter"
+                FalseValue="Black"
+                TrueValue="White" />
+            <converters:BoolToImageConverter
+                x:Key="ObjectBoolToImageConverter"
+                FalseValue="ic_photo_camera"
+                TrueValue="ic_photo_camera_white" />
+            <converters:BoolToImageConverter
+                x:Key="NotesBoolToImageConverter"
+                FalseValue="ic_notes"
+                TrueValue="ic_notes_white" />
+            <converters:BoolToImageConverter
+                x:Key="SketchBoolToImageConverter"
+                FalseValue="ic_sketch"
+                TrueValue="ic_sketch_white" />
+            <converters:BoolToImageConverter
+                x:Key="ScannerImageBoolToImageConverter"
+                FalseValue="ic_scanner_image"
+                TrueValue="ic_scanner_image_white" />
+            <converters:EnumStatusMenuItemToSourceConverter x:Key="EnumStatusMenuItemToSourceConverter" />
+            <converters:IsTrueConverter x:Key="IsTrueConverter" />
+            <converters:IsTrueConverter x:Key="RevertBoolConverter" IsReverse="False" />
+            <Style x:Key="ButtonSaveAndClose" TargetType="controls:CrossButton">
+                <Setter Property="FontSize" Value="{DynamicResource SmallLabelFont}" />
+                <!--<Setter Property="WidthRequest" Value="{DynamicResource WidthButtonSave}"/>-->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="White"
+            ColumnSpacing="0"
+            RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--  Top menu  -->
+
+            <Grid
+                x:Name="gridTopMenu"
+                Grid.Row="0"
+                Grid.Column="0"
+                Padding="0,5"
+                BackgroundColor="LightGray"
+                ColumnSpacing="0"
+                HeightRequest="{DynamicResource HeightHeader}"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="{Binding IsShownTopMenu}"
+                RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+                <controls:ImageButton
+                    x:Name="imageButton"
+                    Grid.Column="0"
+                    Command="{Binding BackCommand}"
+                    HeightRequest="25"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="ic_back"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="25" />
+                <controls:CrossButton
+                    x:Name="notes"
+                    Grid.Column="1"
+                    BackgroundColor="{Binding NotesSelected, Mode=OneWay, Converter={StaticResource BoolToBackgroundColorConverter}}"
+                    ClassId="Notes"
+                    Clicked="TopMenuItemSelected"
+                    ImageSource="{Binding NotesSelected, Mode=OneWay, Converter={StaticResource NotesBoolToImageConverter}}"
+                    IsVisible="{Binding DataTopMemu.Notes}"
+                    Style="{StaticResource ButtonPhoneTopMenu}" />
+                <!--  Text="{localization:TranslateExtension Notes, Upper=True}"  -->
+                <controls:CrossButton
+                    x:Name="sketch"
+                    Grid.Column="2"
+                    BackgroundColor="{Binding SketchSelected, Mode=OneWay, Converter={StaticResource BoolToBackgroundColorConverter}}"
+                    ClassId="Sketch"
+                    Clicked="TopMenuItemSelected"
+                    ImageSource="{Binding SketchSelected, Mode=OneWay, Converter={StaticResource SketchBoolToImageConverter}}"
+                    IsVisible="{Binding DataTopMemu.Sketch}"
+                    Style="{StaticResource ButtonPhoneTopMenu}" />
+                <!--  Text="{localization:TranslateExtension Sketch, Upper=True}"  -->
+                <!--<controls:CrossButton Image="ic_photo_camera.png"
+                                      Grid.Column="3"
+                                      Style="{StaticResource ButtonPhoneTopMenu, Converter={StaticResource BoolToBackgroundColorConverter}}"
+                                      Text="Card"
+                                      Command="{Binding CardCommand}"
+                                      IsVisible="{Binding DataTopMemu.Card}"/>-->
+                <controls:CrossButton
+                    x:Name="object"
+                    Grid.Column="3"
+                    BackgroundColor="{Binding ObjectSelected, Mode=OneWay, Converter={StaticResource BoolToBackgroundColorConverter}}"
+                    ClassId="Object"
+                    Clicked="TopMenuItemSelected"
+                    ImageSource="{Binding ObjectSelected, Mode=OneWay, Converter={StaticResource ObjectBoolToImageConverter}}"
+                    IsVisible="{Binding DataTopMemu.Object}"
+                    Style="{StaticResource ButtonPhoneTopMenu}" />
+                <!--  Text="{localization:TranslateExtension Object, Upper=True}"  -->
+                <controls:CrossButton
+                    x:Name="attachment"
+                    Grid.Column="4"
+                    BackgroundColor="{Binding AttachmentSelected, Mode=OneWay, Converter={StaticResource BoolToBackgroundColorConverter}}"
+                    ClassId="Attach."
+                    Clicked="TopMenuItemSelected"
+                    ImageSource="{Binding AttachmentSelected, Mode=OneWay, Converter={StaticResource ScannerImageBoolToImageConverter}}"
+                    IsVisible="{Binding DataTopMemu.Attachment}"
+                    Style="{StaticResource ButtonPhoneTopMenu}" />
+                <!--  Text="{localization:TranslateExtension Attach, Upper=True}"  -->
+                <controls:CrossButton
+                    Grid.Column="5"
+                    Margin="0,0,5,0"
+                    Padding="{OnPlatform Android='10',
+                                         iOS='5'}"
+                    BackgroundColor="{StaticResource GreenColor}"
+                    Command="{Binding SaveCommand}"
+                    CornerRadius="5"
+                    HorizontalOptions="FillAndExpand"
+                    ImageSource="ic_complete"
+                    Style="{StaticResource ButtonSaveAndClose}"
+                    VerticalOptions="FillAndExpand" />
+                <controls:ImageButton
+                    x:Name="btnArrowUp"
+                    Grid.Column="6"
+                    Command="{Binding HiddenTopMenuCommand}"
+                    HeightRequest="25"
+                    HorizontalOptions="CenterAndExpand"
+                    Rotation="90"
+                    Source="ic_back"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="25" />
+            </Grid>
+
+            <!--  Header title  -->
+
+            <StackLayout
+                x:Name="stTitle"
+                Grid.Row="1"
+                Grid.Column="0"
+                Padding="15,0,5,0"
+                BackgroundColor="White"
+                HeightRequest="65"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="{Binding IsShownTopMenu}"
+                Orientation="Horizontal">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="{DynamicResource HugeLabelFont}"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{Binding Title}"
+                    VerticalOptions="CenterAndExpand" />
+                <!--<Image Source="ic_master_detail"
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowSideMenuOnTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>-->
+            </StackLayout>
+
+
+            <!--  Phone Templete  -->
+            <Grid
+                Grid.Row="2"
+                Padding="0,10,0,0"
+                ColumnSpacing="0"
+                HorizontalOptions="FillAndExpand"
+                RowSpacing="0"
+                VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <!--  Content page  -->
+                <ScrollView
+                    x:Name="svContentPage"
+                    Grid.Row="0"
+                    Margin="0,0,5,0"
+                    Padding="25,0,15,0"
+                    BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand" />
+
+                <ContentView
+                    x:Name="svContentView"
+                    Grid.Row="0"
+                    Margin="0,0,5,0"
+                    Padding="25,0,0,0"
+                    BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    VerticalOptions="FillAndExpand" />
+
+                <!--<ContentView x:Name="svContentPage"
+                        Grid.Column="0"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        BackgroundColor="White"
+                        Padding="25,0,0,0"
+                        Margin="0,0,5,0"/>-->
+
+                <!--<BoxView x:Name="svBoxViewDoNothing"
+                        Grid.Column="0"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        BackgroundColor="Transparent"
+                        IsVisible="{Binding IsVisibleDoNothing}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="InVisibleSideMenuOnTapped"/>
+                        <SwipeGestureRecognizer Direction="Up, Down" Swiped="IsVisibleSideMenuToDoNothingOnSwipe"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>-->
+
+                <!--  Side menu  -->
+                <StackLayout
+                    x:Name="sideMenu"
+                    Grid.Row="1"
+                    BackgroundColor="Transparent">
+
+                    <!--  IsVisible="{Binding IsVisibleSideMenu}">  -->
+                    <Frame
+                        Padding="1"
+                        BorderColor="Black"
+                        CornerRadius="0"
+                        HasShadow="False">
+                        <ScrollView Orientation="Horizontal">
+                            <StackLayout
+                                x:Name="HorizontalBar"
+                                BindableLayout.ItemsSource="{Binding DataSideMenu}"
+                                Orientation="Horizontal">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout
+                                            Padding="10"
+                                            BackgroundColor="{Binding Selected, Converter={StaticResource BoolToBackgroundColorConverter}, Mode=TwoWay}"
+                                            Orientation="Horizontal">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" />
+                                            </StackLayout.GestureRecognizers>
+                                            <ffimageloading:CachedImage
+                                                HeightRequest="30"
+                                                Source="{Binding ItemStatus, Converter={StaticResource EnumStatusMenuItemToSourceConverter}, Mode=TwoWay}"
+                                                VerticalOptions="CenterAndExpand"
+                                                WidthRequest="30" />
+                                            <Label
+                                                x:Name="_label"
+                                                Margin="8,0,0,0"
+                                                FontSize="{DynamicResource NormalLabelFont}"
+                                                Text="{Binding SideMenuID}"
+                                                TextColor="{Binding Selected, Converter={StaticResource BoolToTextColorConverter}, Mode=TwoWay}"
+                                                VerticalOptions="CenterAndExpand" />
+
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </ScrollView>
+                        
+                            <!--<CollectionView
+                            x:Name="SideMenuListView"
+                            ItemsLayout="HorizontalList"
+                            ItemsSource="{Binding DataSideMenu}"
+                            SelectedItem="{Binding Selected, Mode=TwoWay}"
+                            SelectionChanged="SideMenuListView_SelectionChanged"
+                            SelectionMode="Single">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Padding="10" Orientation="Horizontal" BackgroundColor="{Binding Selected, Converter={StaticResource BoolToBackgroundColorConverter}, Mode=TwoWay}">
+                                            <ffimageloading:CachedImage
+                                            HeightRequest="30"
+                                            Source="{Binding ItemStatus, Converter={StaticResource EnumStatusMenuItemToSourceConverter}, Mode=TwoWay}"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="30" />
+                                            <Label
+                                            x:Name="_label"
+                                            Margin="8,0,0,0"
+                                            FontSize="{DynamicResource NormalLabelFont}"
+                                            Text="{Binding SideMenuID}"
+                                            TextColor="{Binding Selected, Converter={StaticResource BoolToTextColorConverter}, Mode=TwoWay}"
+                                            VerticalOptions="CenterAndExpand" 
+                                                />
+                                            --><!--<VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup Name="CommonStates">
+                                                    <VisualState Name="Normal" />
+                                                    <VisualState Name="Selected">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="BackgroundColor" Value="{StaticResource BlueColor}" />
+                                                            <Setter TargetName="_label" Property="Label.TextColor" Value="White" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>--><!--
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>-->
+                        
+                        
+                    </Frame>
+
+                </StackLayout>
+
+                <!--<Grid.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Right"
+                                            Command="{Binding IsVisibleSideMenuCommand}"
+                                            CommandParameter="Right"/>
+                    <SwipeGestureRecognizer Direction="Left"
+                                            Command="{Binding IsVisibleSideMenuCommand}"
+                                            CommandParameter="Left"/>
+                </Grid.GestureRecognizers>-->
+
+            </Grid>
+            <BoxView
+                Grid.Row="2"
+                HeightRequest="40"
+                IsVisible="{Binding IsShownTopMenu, Converter={StaticResource RevertBoolConverter}}"
+                Color="Transparent">
+                <BoxView.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+        </Grid>
+
+    </ContentPage.Content>
+
+</base:BasePage>
