@@ -5,7 +5,7 @@ Conversion guidance mostly taken from :
 1. [econtainerShop migration guidance](https://github.com/dotnet-architecture/eshop-mobile-client/blob/main/migration.md)
 2. [Official migration Xamarin Forms to .NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/migration/skiasharp?view=net-maui-8.0)
 3. [Reusing Effects](https://github.com/dotnet/maui/wiki/Migrating-Xamarin.Forms-Effects)
-4. [Custom Renderer] (https://learn.microsoft.com/en-us/dotnet/maui/migration/renderer-to-handler?view=net-maui-8.0)
+4. [Custom Renderer](https://learn.microsoft.com/en-us/dotnet/maui/migration/renderer-to-handler?view=net-maui-8.0)
 
 ## Color.Accent
 Xamarin.Forms code : `Color.Accent`
@@ -54,5 +54,33 @@ The Old Xamarin source is implementing SignaturePad Nuget. This SignaturePad is 
 
 ## Cutom renderer
 
-Based on [this] (https://learn.microsoft.com/en-us/dotnet/maui/migration/renderer-to-handler?view=net-maui-8.0) we reuse Xamarin forms Custom renderer.
+Based on [this](https://learn.microsoft.com/en-us/dotnet/maui/migration/renderer-to-handler?view=net-maui-8.0) we reuse Xamarin forms Custom renderer.
 
+## Permissions
+[reference](https://www.youtube.com/watch?v=9GljgwfpiiE&t=907s)
+```
+    var camerastatus = PermissionStatus.Unknown;
+
+    camerastatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
+    if (camerastatus == PermissionStatus.Granted)
+        return;
+
+    if (Permissions.ShouldShowRationale<Permissions.Camera>())
+    {
+        await MessagePopup.Instance.Show(message: TranslateExtension.Get("GrantPermissionCamera"),
+            closeButtonText: "OK", textBackgroundColor: "#bdbdbd",
+            closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
+    }
+
+    camerastatus = await Permissions.RequestAsync<Permissions.Camera>();
+    //old
+    //bool allowed = await CheckCameraPermission();
+    //if(!allowed)
+
+    if (camerastatus != PermissionStatus.Granted)
+    {
+        await MessagePopup.Instance.Show(message: TranslateExtension.Get("GrantPermissionCamera"),
+            closeButtonText: "OK", textBackgroundColor: "#bdbdbd",
+            closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
+    }
+```
