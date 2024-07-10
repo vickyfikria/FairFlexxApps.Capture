@@ -57,29 +57,30 @@ The Old Xamarin source is implementing SignaturePad Nuget. This SignaturePad is 
 Based on [this](https://learn.microsoft.com/en-us/dotnet/maui/migration/renderer-to-handler?view=net-maui-8.0) we reuse Xamarin forms Custom renderer.
 
 ## Permissions
+[reference](https://www.youtube.com/watch?v=9GljgwfpiiE&t=907s)
 ```
-                var camerastatus = PermissionStatus.Unknown;
+    var camerastatus = PermissionStatus.Unknown;
 
-                camerastatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
-                if (camerastatus == PermissionStatus.Granted)
-                    return;
+    camerastatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
+    if (camerastatus == PermissionStatus.Granted)
+        return;
 
-                if (Permissions.ShouldShowRationale<Permissions.Camera>())
-                {
-                    await MessagePopup.Instance.Show(message: TranslateExtension.Get("GrantPermissionCamera"),
-                        closeButtonText: "OK", textBackgroundColor: "#bdbdbd",
-                        closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
-                }
+    if (Permissions.ShouldShowRationale<Permissions.Camera>())
+    {
+        await MessagePopup.Instance.Show(message: TranslateExtension.Get("GrantPermissionCamera"),
+            closeButtonText: "OK", textBackgroundColor: "#bdbdbd",
+            closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
+    }
 
-                camerastatus = await Permissions.RequestAsync<Permissions.Camera>();
-                //old
-                //bool allowed = await CheckCameraPermission();
-                //if(!allowed)
+    camerastatus = await Permissions.RequestAsync<Permissions.Camera>();
+    //old
+    //bool allowed = await CheckCameraPermission();
+    //if(!allowed)
 
-                if (camerastatus != PermissionStatus.Granted)
-                {
-                    await MessagePopup.Instance.Show(message: TranslateExtension.Get("GrantPermissionCamera"),
-                        closeButtonText: "OK", textBackgroundColor: "#bdbdbd",
-                        closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
-                }
+    if (camerastatus != PermissionStatus.Granted)
+    {
+        await MessagePopup.Instance.Show(message: TranslateExtension.Get("GrantPermissionCamera"),
+            closeButtonText: "OK", textBackgroundColor: "#bdbdbd",
+            closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
+    }
 ```
