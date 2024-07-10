@@ -44,6 +44,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Controls.Internals;
 using Device = Microsoft.Maui.Controls.Device;
 using NavigationParameters = Prism.Navigation.NavigationParameters;
+using Mopups.Services;
 
 namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
 {
@@ -378,7 +379,12 @@ namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
                     var visitorPage = Template.Pages.FirstOrDefault(p => p.Short == "visitor");
                     var visitorBox = visitorPage.Boxs.FirstOrDefault(b => b.Id == "visitor");
                     var visitorBoxInputs = new List<Input>();
-                    visitorBox.Body.Rows.ToList<Row>(); .ForEach(r => visitorBoxInputs.AddRange(r.Inputs));
+                    // before : visitorBox.Body.Rows.ForEach(r => visitorBoxInputs.AddRange(r.Inputs))
+                    // issue : List doesn't contain ForEach 
+                    // after : add ToList<Row>
+                    var visitorBoxRows = visitorBox.Body.Rows.ToList<Row>();
+                    visitorBoxRows.ForEach(r => visitorBoxInputs.AddRange(r.Inputs));
+
                     foreach (var input in visitorBoxInputs)
                     {
 
@@ -415,7 +421,12 @@ namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
 
                     var companyBox = visitorPage.Boxs.FirstOrDefault(b => b.Id == "company");
                     var companyBoxInputs = new List<Input>();
-                    companyBox.Body.Rows.ForEach(r => companyBoxInputs.AddRange(r.Inputs));
+                    // before : companyBox.Body.Rows.ForEach(r => companyBoxInputs.AddRange(r.Inputs));
+
+                    // after : companyBox.Body.Rows.ToList<Row>
+                    // ForEach(r => companyBoxInputs.AddRange(r.Inputs));
+                    var companyBoxListOfRows = companyBox.Body.Rows.ToList<Row>();
+                    companyBoxListOfRows.ForEach(r => companyBoxInputs.AddRange(r.Inputs));
                     foreach (var input in companyBoxInputs)
                     {
 
@@ -715,8 +726,8 @@ namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
 #endif
                     return;
                 }
-
-                await PopupNavigation.Instance.PushAsync(new ZoomImagePopUp(((ScannerResult)obj).ByteImage));
+                await MopupService.Instance.PushAsync(new ZoomImagePopUp(((ScannerResult)obj).ByteImage));
+                //await PopupNavigation.Instance.PushAsync(new ZoomImagePopUp(((ScannerResult)obj).ByteImage));
             });
         }
 
@@ -732,7 +743,7 @@ namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
                     return;
                 }
 
-                await PopupNavigation.Instance.PushAsync(new ZoomImagePopUp(obj));
+                await MopupService.Instance.PushAsync(new ZoomImagePopUp(obj));
             });
         }
 
@@ -740,7 +751,7 @@ namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
         {
             await CheckBusy(async () =>
             {
-                await PopupNavigation.Instance.PushAsync(new ZoomImagePopUp(ScannerResult[Position].ByteImage));
+                await MopupService.Instance.PushAsync(new ZoomImagePopUp(ScannerResult[Position].ByteImage));
             });
         }
 
@@ -770,22 +781,47 @@ namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
         {
             await CheckBusy(async () =>
             {
-                var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
-                if (cameraStatus != Plugin.Permissions.Abstractions.PermissionStatus.Granted)
+
+                // .NET MAUI
+                var status = PermissionStatus.Unknown;
+                status = await Permissions.CheckStatusAsync<Permissions.Camera>();
+                if (status == PermissionStatus.Granted)
+                    return;
+
+                if(Permissions.ShouldShowRationale<Permissions.Camera>())
                 {
-                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera);
-                    cameraStatus = results[Permission.Camera];
+                    //await Shell.Current.DisplayAlert("Need Permissions", "Because !!!", "OK");
+                    await MessagePopup.Instance.Show("Need Permission", "Ok");
                 }
 
-                if (cameraStatus == Plugin.Permissions.Abstractions.PermissionStatus.Granted)
+                status = await Permissions.RequestAsync<Permissions.Camera>();
+
+                if(status != PermissionStatus.Granted)
                 {
-                    await CameraAction();
+                    await MessagePopup.Instance.Show(TranslateExtension.Get("PermissionsDenied"));
                 }
                 else
                 {
-                    await MessagePopup.Instance.Show(TranslateExtension.Get("PermissionsDenied"));
-                    CrossPermissions.Current.OpenAppSettings();
+                    await CameraAction();
                 }
+
+                // Old Xamarin
+                //var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+                //if (cameraStatus != Plugin.Permissions.Abstractions.PermissionStatus.Granted)
+                //{
+                //    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera);
+                //    cameraStatus = results[Permission.Camera];
+                //}
+
+                //if (cameraStatus == Plugin.Permissions.Abstractions.PermissionStatus.Granted)
+                //{
+                //    await CameraAction();
+                //}
+                //else
+                //{
+                //    await MessagePopup.Instance.Show(TranslateExtension.Get("PermissionsDenied"));
+                //    CrossPermissions.Current.OpenAppSettings();
+                //}
             });
         }
 
@@ -1815,9 +1851,9 @@ namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
         /// <returns></returns>
         public override bool OnBackButtonPressed()
         {
-            if (PopupNavigation.Instance.PopupStack.Count == 1)
+            if (MopupService.Instance.PopupStack.Count == 1)
             {
-                PopupNavigation.Instance.PopAsync();
+                MopupService.Instance.PopAsync();
             }
             else
             {
