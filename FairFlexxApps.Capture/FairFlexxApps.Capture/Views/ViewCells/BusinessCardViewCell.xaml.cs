@@ -4,9 +4,9 @@ using FairFlexxApps.Capture.Controls;
 using FairFlexxApps.Capture.Models.LeadModels;
 using FairFlexxApps.Capture.ViewModels.NewLeadFlows;
 using FairFlexxApps.Capture.Views.Popups;
-using Rg.Plugins.Popup.Services;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Mopups;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace FairFlexxApps.Capture.Views.ViewCells
 {
@@ -44,7 +44,7 @@ namespace FairFlexxApps.Capture.Views.ViewCells
         {
             var byteImage = leadTypeModel.ScannerResult[leadTypeModel.Position].ByteImage;
             var stream = new MemoryStream(byteImage);
-            var imageSource = Xamarin.Forms.ImageSource.FromStream(() => stream);
+            var imageSource = ImageSource.FromStream(() => stream);
             SourceCard.Source = imageSource;
         }
 

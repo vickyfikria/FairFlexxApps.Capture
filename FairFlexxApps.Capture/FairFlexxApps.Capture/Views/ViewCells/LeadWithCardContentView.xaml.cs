@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using FairFlexxApps.Capture.Controls;
 using FairFlexxApps.Capture.Models.LeadModels;
 using FairFlexxApps.Capture.ViewModels.NewLeadFlows;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace FairFlexxApps.Capture.Views.ViewCells
 {
