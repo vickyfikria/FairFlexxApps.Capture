@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Microsoft.Maui;
-
-using Android.Views;
+﻿using Android.Views;
 using FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls.Shapes;
+using Point = Microsoft.Maui.Graphics.Point;
+
 
 [assembly: ResolutionGroupName("XamarinDocs")]
 [assembly: ExportEffect(typeof(FairFlexxApps.Capture.Droid.Controls.TouchEffect), "TouchEffect")]

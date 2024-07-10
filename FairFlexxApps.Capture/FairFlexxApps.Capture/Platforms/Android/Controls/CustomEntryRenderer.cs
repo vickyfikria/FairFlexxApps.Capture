@@ -1,7 +1,7 @@
 ﻿using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-
+using AndroidX.Core.Content;
 using FairFlexxApps.Capture.Controls;
 using FairFlexxApps.Capture.Droid.Controls;
 using Microsoft.Maui.Controls.Compatibility;

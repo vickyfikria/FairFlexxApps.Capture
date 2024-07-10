@@ -69,7 +69,7 @@ namespace FairFlexxApps.Capture
 
         #region StartApp
 
-        private async void StartApp()
+        private void StartApp()
         {
             Settings = new AppSettings();
             Configs = new AppConfig();

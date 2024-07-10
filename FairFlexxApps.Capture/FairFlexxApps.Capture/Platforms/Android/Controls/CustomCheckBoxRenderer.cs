@@ -6,6 +6,7 @@ using FairFlexxApps.Capture.Controls;
 using FairFlexxApps.Capture.Droid.Controls;
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using Microsoft.Maui.Controls.Platform;
 
 [assembly: ExportRenderer(typeof(CustomCheckBox), typeof(CustomCheckBoxRenderer))]
 namespace FairFlexxApps.Capture.Droid.Controls
@@ -189,7 +190,7 @@ namespace FairFlexxApps.Capture.Droid.Controls
             if (Control == null || Element == null)
                 return;
 
-            if (Element.TextColor == Xamarin.Forms.Color.Default)
+            if (Element.TextColor == Colors.Transparent)
                 Control.SetTextColor(defaultTextColor);
             else
                 Control.SetTextColor(Element.TextColor.ToAndroid());

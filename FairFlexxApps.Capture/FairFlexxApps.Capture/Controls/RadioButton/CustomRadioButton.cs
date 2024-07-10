@@ -181,7 +181,7 @@ namespace FairFlexxApps.Capture.Controls.RadioButton
             lblEmpty.FontSize = value;
             lblFilled.FontSize = value * .92;
             if (this.Children.Count > 0)
-                this.Children[0].MinimumWidthRequest = value * 1.66;
+                this.MinimumWidthRequest = value * 1.66;
         }
     }
 

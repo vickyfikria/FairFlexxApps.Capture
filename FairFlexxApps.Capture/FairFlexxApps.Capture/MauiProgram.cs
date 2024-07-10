@@ -64,7 +64,7 @@ namespace FairFlexxApps.Capture
                 {
                     handlers.AddBarcodeScannerHandler();
 #if ANDROID
-                    handlers.AddHandler(typeof(CustomRadioButton), typeof(CustomRadioButtonRenderer));
+
                     handlers.AddHandler(typeof(CrossButton), typeof(CrossButtonRenderer));
                     handlers.AddHandler(typeof(CustomCheckBox), typeof(CustomCheckBoxRenderer));
                     handlers.AddHandler(typeof(CustomEditor), typeof(CustomEditorRenderer));

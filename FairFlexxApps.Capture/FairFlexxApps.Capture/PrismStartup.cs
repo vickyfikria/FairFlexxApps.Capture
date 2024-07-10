@@ -27,8 +27,9 @@ internal static class PrismStartup
         containerRegistry.RegisterForNavigation<MainPage>()
                      .RegisterInstance(SemanticScreenReader.Default);
 
+#if ANDROID
         containerRegistry.RegisterSingleton<IFileService, FileService >();
-
+#endif
 
     }
 }
