@@ -6,6 +6,7 @@ Conversion guidance mostly taken from :
 2. [Official migration Xamarin Forms to .NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/migration/skiasharp?view=net-maui-8.0)
 3. [Reusing Effects](https://github.com/dotnet/maui/wiki/Migrating-Xamarin.Forms-Effects)
 4. [Custom Renderer](https://learn.microsoft.com/en-us/dotnet/maui/migration/renderer-to-handler?view=net-maui-8.0)
+5. [Touch Effect](https://learn.microsoft.com/en-us/answers/questions/975093/trying-to-migrate-xamarin-forms-effect-functionali)
 
 ## Color.Accent
 Xamarin.Forms code : `Color.Accent`
@@ -84,3 +85,6 @@ Based on [this](https://learn.microsoft.com/en-us/dotnet/maui/migration/renderer
             closeCommand: ((ScanQrCodePageViewModel)this.BindingContext).BackCommand);
     }
 ```
+## Touch Effect or Touch Behaviour
+
+
