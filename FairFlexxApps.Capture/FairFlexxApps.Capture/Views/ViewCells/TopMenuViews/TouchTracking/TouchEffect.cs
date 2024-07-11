@@ -6,7 +6,7 @@ namespace FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking
     {
         public event TouchActionEventHandler TouchAction;
 
-        public TouchEffect() : base("XamarinDocs.TouchEffect")
+        public TouchEffect() : base()
         {
         }
 

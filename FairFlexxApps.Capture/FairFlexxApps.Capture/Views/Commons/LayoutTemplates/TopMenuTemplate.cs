@@ -19,7 +19,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 //RowSpacing = 1,
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.DimGray,
+                BackgroundColor = Colors.DimGray,
             };
 
             #endregion
@@ -47,35 +47,35 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
 
             #region Notes button
 
-            var noteLayout = GetMenuButton(imageSource: "ic_edit.png", backgroundColor: Color.LightGray,
+            var noteLayout = GetMenuButton(imageSource: "ic_edit.png", backgroundColor: Colors.LightGray,
                 buttonText: "Notes", isVisible: topMenuTemplate.Notes);
 
             #endregion
 
             #region Sketch button
 
-            var sketchLayout = GetMenuButton(imageSource: "ic_edit.png", backgroundColor: Color.LightGray,
+            var sketchLayout = GetMenuButton(imageSource: "ic_edit.png", backgroundColor: Colors.LightGray,
                 buttonText: "Sketch", isVisible: topMenuTemplate.Sketch);
 
             #endregion
 
             #region Card button
 
-            var cardLayout = GetMenuButton(imageSource: "ic_photo_camera.png", backgroundColor: Color.Cyan,
+            var cardLayout = GetMenuButton(imageSource: "ic_photo_camera.png", backgroundColor: Colors.Cyan,
                 buttonText: "Card", isVisible: topMenuTemplate.Card);
 
             #endregion
 
             #region Attachment button
 
-            var attachmentLayout = GetMenuButton(imageSource: "ic_photo_camera.png", backgroundColor: Color.Cyan,
+            var attachmentLayout = GetMenuButton(imageSource: "ic_photo_camera.png", backgroundColor: Colors.Cyan,
                 buttonText: "Attachment", isVisible: topMenuTemplate.Attachment);
 
             #endregion
 
             #region Object button
 
-            var objectLayout = GetMenuButton(imageSource: "ic_photo_camera.png", backgroundColor: Color.Cyan,
+            var objectLayout = GetMenuButton(imageSource: "ic_photo_camera.png", backgroundColor: Colors.Cyan,
                 buttonText: "Object", isVisible: topMenuTemplate.Object);
 
             #endregion
@@ -94,7 +94,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             var dash = new BoxView()
             {
                 HeightRequest = 1,
-                BackgroundColor = Color.DimGray,
+                BackgroundColor = Colors.DimGray,
                 VerticalOptions = LayoutOptions.StartAndExpand,
             };
 
@@ -102,13 +102,13 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
 
             #region Set Layout
 
-            topMenu.Children.Add(backArrowLayout, 0, 0);
-            topMenu.Children.Add(noteLayout, 1, 0);
-            topMenu.Children.Add(sketchLayout, 2, 0);
-            topMenu.Children.Add(cardLayout, 3, 0);
-            topMenu.Children.Add(attachmentLayout, 4, 0);
-            topMenu.Children.Add(objectLayout, 5, 0);
-            topMenu.Children.Add(saveAndCloseLayout, 6, 0);
+            topMenu.Add(backArrowLayout, 0, 0);
+            topMenu.Add(noteLayout, 1, 0);
+            topMenu.Add(sketchLayout, 2, 0);
+            topMenu.Add(cardLayout, 3, 0);
+            topMenu.Add(attachmentLayout, 4, 0);
+            topMenu.Add(objectLayout, 5, 0);
+            topMenu.Add(saveAndCloseLayout, 6, 0);
 
             //topMenu.Children.Add(dash, 0, 1);
             //Grid.SetColumnSpan(dash, 7);
@@ -139,7 +139,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.LightGray,
+                BackgroundColor = Colors.LightGray,
                 Spacing = 0,
                 Children =
                 {
@@ -242,7 +242,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                             new Label()
                             {
                                 Text = "Save & Close",
-                                TextColor = Color.White,
+                                TextColor = Colors.White,
                                 VerticalOptions = LayoutOptions.CenterAndExpand,
                             },
                         },

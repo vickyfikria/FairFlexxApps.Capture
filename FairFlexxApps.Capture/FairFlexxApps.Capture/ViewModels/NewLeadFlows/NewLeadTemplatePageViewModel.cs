@@ -1775,19 +1775,24 @@ namespace FairFlexxApps.Capture.ViewModels.NewLeadFlows
                                 {
                                     if (Template.Pages[preIndex].Boxs[indexBoxInPage].Size == SizeType.Half.ToString().ToLower())
                                         ((Grid)(((StackLayout)LayoutPages[preIndex]).Children[indexChildren]))
-                                            .Children[indexChildrenBox].BackgroundColor = (Color)App.Current.Resources["RedColor"];
+                                            //.Children[indexChildrenBox]
+                                            .BackgroundColor = (Color)App.Current.Resources["RedColor"];
                                     else
-                                        ((StackLayout)LayoutPages[preIndex]).Children[indexChildren].BackgroundColor = (Color)App.Current.Resources["RedColor"];
+                                        ((StackLayout)LayoutPages[preIndex])
+                                            //.Children[indexChildren]
+                                            .BackgroundColor = (Color)App.Current.Resources["RedColor"];
 
                                 }
                                 else
                                 {
                                     if (Template.Pages[preIndex].Boxs[indexBoxInPage].Size == SizeType.Half.ToString().ToLower())
                                         ((Grid)(((StackLayout)LayoutPages[preIndex]).Children[indexChildren]))
-                                            .Children[indexChildrenBox].BackgroundColor = (Color)App.Current.Resources["DimGrayColor"];
+                                            //.Children[indexChildrenBox]
+                                            .BackgroundColor = (Color)App.Current.Resources["DimGrayColor"];
                                     else
-                                        ((StackLayout)LayoutPages[preIndex]).Children[indexChildren].BackgroundColor =
-                                            (Color)App.Current.Resources["DimGrayColor"];
+                                        ((StackLayout)LayoutPages[preIndex])
+                                            //.Children[indexChildren]
+                                            .BackgroundColor = (Color)App.Current.Resources["DimGrayColor"];
                                 }
                             }
 

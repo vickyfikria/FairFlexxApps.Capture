@@ -68,7 +68,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 ClassId = pagesTemplate.PageID,
-                BackgroundColor = Color.White,
+                BackgroundColor = Colors.White,
             };
 
             for (int indexItem = 0; indexItem < pagesTemplate.Boxs.Count; indexItem++)

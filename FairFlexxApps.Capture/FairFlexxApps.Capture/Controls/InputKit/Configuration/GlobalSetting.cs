@@ -12,9 +12,9 @@ namespace FairFlexxApps.Capture.Controls.InputKit.Configuration
     public partial class GlobalSetting : ObservableObject
 
     {
-        [ObservableProperty] Color? color;
-        [ObservableProperty] Color? backgroundColor;
-        [ObservableProperty] Color? borderColor;
+        [ObservableProperty] Color color;
+        [ObservableProperty] Color backgroundColor;
+        [ObservableProperty] Color borderColor;
         [ObservableProperty] float cornerRadius;
         [ObservableProperty] double fontSize;
         [ObservableProperty] double size;

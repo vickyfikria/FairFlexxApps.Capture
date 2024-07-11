@@ -6,6 +6,8 @@
                      xmlns:base="clr-namespace:FairFlexxApps.Capture.Views.Base;assembly=FairFlexxApps.Capture"
                      xmlns:controls="clr-namespace:FairFlexxApps.Capture.Controls;assembly=FairFlexxApps.Capture"
                      xmlns:localization="clr-namespace:FairFlexxApps.Capture.Localization;assembly=FairFlexxApps.Capture"
+                     xmlns:prism="http://prismlibrary.com"
+                     prism:ViewModelLocator.AutowireViewModel="Automatic"
                      x:Class="FairFlexxApps.Capture.Views.Popups.ConfirmPopup">
     <mopups:PopupPage.Animation>
         <base:PopupFadeAnimation/>

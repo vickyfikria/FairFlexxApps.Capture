@@ -36,10 +36,10 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             {
                 ClassId = id,
                 IsVisible = isVisible,
-                BorderColor = Color.Green,
-                BoxBackgroundColor = Color.Transparent,
-                BackgroundColorSelected = Color.Green,
-                Color = Color.White,
+                BorderColor = Colors.Green,
+                BoxBackgroundColor = Colors.Transparent,
+                BackgroundColorSelected = Colors.Green,
+                Color = Colors.White,
                 IsChecked = check,
                 TextFontSize = (double)App.Current.Resources["NormalLabelControlFont"] + (int)App.Settings.FontSize,
                 BoxSizeRequest = 22,
@@ -52,10 +52,10 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 Text = text,
                 UnCheckedTextColor = (!string.IsNullOrEmpty(boxType) && boxType.Equals(BoxType.Gdpr))
                     ? (Color)App.Current.Resources["GreenColor"]
-                    : Color.Black,
+                    : Colors.Black,
                 CheckedTextColor = (!string.IsNullOrEmpty(boxType) && boxType.Equals(BoxType.Gdpr))
                     ? (Color)App.Current.Resources["RedColor"]
-                    : Color.Black,
+                    : Colors.Black,
             };
 
         }
@@ -97,7 +97,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
             {
                 ClassId = id,
                 IsVisible = isVisible,
-                OutlineColor = Color.Green,
+                OutlineColor = Colors.Green,
                 IsChecked = check,
                 FontSize = (float)(fontSize),
                 HeightRequest = Device.Idiom == TargetIdiom.Tablet ? (heightRequest + ((int)(App.Settings.FontSize) * 5)) : heightRequest,
@@ -172,10 +172,10 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
                 Text = text,
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 HorizontalOptions = LayoutOptions.Start,
-                Color = Color.Blue,
-                BackgroundColor = Color.Bisque,
-                BorderColor = Color.Aqua,
-                BoxBackgroundColor = Color.DarkGoldenrod,
+                Color = Colors.Blue,
+                BackgroundColor = Colors.Bisque,
+                BorderColor = Colors.Aqua,
+                BoxBackgroundColor = Colors.DarkGoldenrod,
             };
         }
 
@@ -416,7 +416,7 @@ namespace FairFlexxApps.Capture.Views.Commons.LayoutTemplates
         public static Microsoft.Maui.Controls.Label LabelControl(string text, bool isVisible, bool isMandatory = false)
         {
             var labelSpan = new Span { Text = text };
-            var isMandatorySpan = new Span { Text = "  *", TextColor = Color.Red };
+            var isMandatorySpan = new Span { Text = "  *", TextColor = Colors.Red };
 
             var formattedText = new FormattedString();
             formattedText.Spans.Add(labelSpan);

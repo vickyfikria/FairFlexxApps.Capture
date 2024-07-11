@@ -14,7 +14,7 @@ namespace FairFlexxApps.Capture.Droid.Controls
     {
         Android.Views.View view;
         Element formsElement;
-        FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking.TouchEffect libTouchEffect;
+        TouchEffect libTouchEffect;
         bool capture;
         Func<double, double> fromPixels;
         int[] twoIntArray = new int[2];
@@ -31,9 +31,8 @@ namespace FairFlexxApps.Capture.Droid.Controls
             view = Control == null ? Container : Control;
 
             // Get access to the TouchEffect class in the .NET Standard library
-            FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking.TouchEffect touchEffect =
-                (FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking.TouchEffect)Element.Effects.
-                    FirstOrDefault(e => e is FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking.TouchEffect);
+            TouchEffect touchEffect = 
+                (TouchEffect)Element.Effects.FirstOrDefault(e => e is TouchEffect);
 
             if (touchEffect != null && view != null)
             {

@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Remove="Platforms\Android\Controls\CameraControlView.cs" />
     <Compile Remove="Platforms\Android\Controls\CustomRadioButtonRenderer.cs" />
+    <Compile Remove="Platforms\Android\Controls\TouchEffect.cs" />
     <Compile Remove="Views\ViewCells\TopMenuViews\SketchContentView.xaml.cs" />
   </ItemGroup>
 
@@ -166,7 +167,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Behaviors\SketchSignature\" />
     <Folder Include="Services\Navigation\" />
   </ItemGroup>
 

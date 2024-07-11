@@ -13,13 +13,14 @@ using FairFlexxApps.Capture.Interfaces.HttpService;
 using FairFlexxApps.Capture.Interfaces.LocalDatabase;
 using FairFlexxApps.Capture.Services.LocalDatabase;
 using CommunityToolkit.Maui;
-using FairFlexxApps.Capture.Droid.Utilities;
-using FairFlexxApps.Capture.Droid.Services.SQLiteService;
+
 using BarcodeScanner.Mobile;
 using FairFlexxApps.Capture.Controls.RadioButton;
-using FotoScan.Tablet.Droid.Controls;
 using FairFlexxApps.Capture.Droid.Controls;
 using FairFlexxApps.Capture.Controls;
+using FairFlexxApps.Capture.Views.ViewCells.TopMenuViews.TouchTracking;
+using FairFlexxApps.Capture.Droid.Services.SQLiteService;
+using FairFlexxApps.Capture.Droid.Utilities;
 
 namespace FairFlexxApps.Capture
 {
@@ -60,6 +61,11 @@ namespace FairFlexxApps.Capture
                         //fonts.AddFont("SourceSansPro-Regular.ttf", "SourceSansPro-Regular");
                         //fonts.AddFont("SourceSansPro-Solid.ttf", "SourceSansPro-Solid");
                     })
+                .ConfigureEffects(effects =>
+                {
+                    effects.Add<TouchEffect, TouchPlatformEffect>();
+                }
+                )
                 .ConfigureMauiHandlers(handlers =>
                 {
                     handlers.AddBarcodeScannerHandler();
@@ -69,6 +75,7 @@ namespace FairFlexxApps.Capture
                     handlers.AddHandler(typeof(CustomCheckBox), typeof(CustomCheckBoxRenderer));
                     handlers.AddHandler(typeof(CustomEditor), typeof(CustomEditorRenderer));
                     handlers.AddHandler(typeof(CustomEntry), typeof(CustomEntryRenderer));
+                    handlers.AddHandler(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer));
                     handlers.AddHandler(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer));
 #endif
 
